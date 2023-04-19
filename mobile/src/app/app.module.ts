@@ -6,10 +6,9 @@ import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
-import {NgZorroAntdMobileModule} from "ng-zorro-antd-mobile";
 import {RouteModule} from "./route/route.module";
 import {SharedModule} from "./shared.module";
-import {LoginComponent} from "./route/login/login.component";
+import {NgZorroAntdMobileModule} from "ng-zorro-antd-mobile";
 
 @NgModule({
   declarations: [
@@ -20,10 +19,10 @@ import {LoginComponent} from "./route/login/login.component";
     BrowserAnimationsModule,
     FormsModule,
     HttpClientModule,
-    NgZorroAntdMobileModule,
     RouteModule,
     AppRoutingModule,
-    SharedModule
+    SharedModule,
+    NgZorroAntdMobileModule
   ],
   providers: [],
   bootstrap: [AppComponent]

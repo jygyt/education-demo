@@ -1,12 +1,32 @@
-<table class="login-table">
-  <tbody>
-  <tr>
-    <td>
-      <div class="login-title">
-        <h3>云在智能教室网关系统</h3>
-      </div>
-    </td>
-  </tr>
-  </tbody>
 
-</table>
+<div class="content">
+  <div class="longin-boder">
+    <div class="am-list">
+      <div class="am-list-body">
+        <InputItem [placeholder]="'account'" [content]="content">
+          <ng-template #content>
+            <div
+              style="background-image:url(../../../assets/imgs/account.png); background-size:cover;height:22px; width: 22px "
+            ></div>
+          </ng-template>
+        </InputItem>
+      </div>
+    </div>
+  </div>
+  <!--End用户名输入框-->
+  <div class="longin-boder">
+    <div class="am-list">
+      <div class="am-list-body">
+        <InputItem [type]="'password'" [placeholder]="'***'" [content]="content1">
+          <ng-template #content1>
+            <div
+              style="background-image:url(../../../assets/imgs/password.png); background-size:cover;height:22px; width: 22px "
+            ></div>
+          </ng-template>
+        </InputItem>
+      </div>
+    </div>
+  </div>
+  <!--End密码输入框-->
+  <div class="button">登录</div>
+</div>

@@ -30,7 +30,7 @@ export class LoginComponent implements OnInit {
 
     console.log("1111111111111")
     if (localStorage.getItem('token') ) {  // 已登录
-      this.router.navigate([`/page`]);
+      this.router.navigate([`/login`]);
     } else if (localStorage.getItem('state') === '401') {
       localStorage.removeItem('state');
     }

@@ -1,99 +1,88 @@
-::ng-deep .login-table {
+
+.am-list-body {
   position: relative;
+  background-color: #fff;
+  border-top: 1px solid #ddd;
+  border-bottom: 1px solid #ddd;
+}
+.am-list-header {
+  padding: 15px 15px 9px 15px;
+  font-size: 14px;
+  color: #888;
   width: 100%;
-  height: 100%;
-  background: url("../../../assets/imgs/bg.jpg") no-repeat top center;
-  background-size: cover;
-
-  .ant-input {
-    height: 40px;
-    border-radius: 50px;
-    background: none;
-    color: #fff;
-  }
-
-  .has-error .ant-input-affix-wrapper .ant-input, .has-error .ant-input-affix-wrapper .ant-input:hover {
-    background: none;
-  }
-
-  .ant-checkbox-checked .ant-checkbox-inner {
-    background-color: #1b3f8d;
-    border-color: #1b3f8d;
-  }
-
-  .ant-input-affix-wrapper .ant-input-prefix i {
-    color: #fff !important;
-  }
-
-  .ng-trigger-helpMotion {
-    text-align: left;
-  }
-
-  tr td {
-    text-align: center;
-  }
-
-  .login-form {
-    max-width: 300px;
-    margin: 0 auto;
-
-
-    .login-form-button {
-      width: 100%;
-      margin-top: 10px;
-      height: 40px;
-      border-radius: 50px;
-      outline: none;
-      color: #fff;
-      background-color: #1b3f8d;
-      border-color: #1b3f8d;
-
-      &:hover {
-        background: #3a599c;
-        border-color: #3a599c;
-      }
-    }
-
-    .ant-checkbox-wrapper {
-      float: left;
-      color: #fff;
-      text-shadow: 0 1px 0 rgba(0, 0, 0, 0.7);
-    }
-
-    .login-form-forgot {
-      float: right;
-      color: #fff;
-      text-shadow: 0 1px 0 rgba(0, 0, 0, 0.7);
-
-      &:hover {
-        color: #1b3f8d;
-      }
-    }
-  }
-
-  .login-title {
-    text-align: center;
-    width: 300px;
-    margin: 0 auto 50px;
-
-    h3 {
-      font-size: 25px;
-      display: block;
-      margin: 0 auto;
-      height: 40px;
-      text-align: center;
-      z-index: 5;
-      line-height: 40px;
-      overflow: hidden;
-      text-overflow: ellipsis;
-      white-space: nowrap;
-      color: #ffffff;
-    }
-  }
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+}
+:host ::ng-deep .am-list-body InputItem:not(:last-child) .am-list-line {
+  border-bottom: 1px solid #ddd;
 }
 
+.am-list-item .am-list-line .am-list-content {
+  -webkit-box-flex: 1;
+  -webkit-flex: 1;
+  -ms-flex: 1;
+  flex: 1;
+  color: #000;
+  font-size: 17px;
+  line-height: 1.5;
+  text-align: left;
+  width: auto;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  padding-top: 7px;
+  padding-bottom: 7px;
+}
+.content{
+  width: 100%;
+  margin-top: 40%;
+  text-align: center;
+}
+.longin-boder{
+  width: 80%;
+  height: 40px;
+  margin-top: 10px;
+  margin-left: 10%;
+  line-height: 40px;
+  text-align: center;
+  border: 1px solid #dddddd;
+  border-radius: 5px;
+  background-color: #efefef;
+}
+.image{
+  width: 10%;
+  margin-top: 5px;
+  float: left;
+  text-align: right;
+}
+.input{
+  width: 80%;
+  float: left;
+  margin-left: 5%;
+  height: 37px;
+  line-height: 37px;
+  border:0px;
+  color: #333333;
+  font-size: 16px;
+  background-color: #efefef;
 
+}
 
+.button{
+  height: 40px;
+  width: 80%;
+  margin-top: 20px;
+  margin-left: 10%;
+  font-size: 16px;
+  font-family: "微软雅黑";
+  font-weight: bold;
+  line-height: 38px;
+  border-radius: 5px;
+  color: #ffffff;
+  background-color: #37B4CA;
 
+}
 
-
+.button:active {
+  background-color:#37a3b9;
+}

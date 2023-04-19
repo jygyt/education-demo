@@ -63,3 +63,7 @@ Identify and stop the process that's listening on port 80 or configure this appl
 2023-04-19 13:40:46.412  INFO 780 --- [main] DeferredRepositoryInitializationListener : Triggering deferred initialization of Spring Data repositories…
 2023-04-19 13:40:46.434  INFO 780 --- [main] DeferredRepositoryInitializationListener : Spring Data repositories initialized!
 2023-04-19 13:40:46.443  INFO 780 --- [main] c.y.education.DetectionApplication       : Started DetectionApplication in 6.792 seconds (JVM running for 8.423)
+2023-04-19 15:00:58.321  INFO 780 --- [SpringContextShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2023-04-19 15:00:58.351  INFO 780 --- [SpringContextShutdownHook] o.s.s.concurrent.ThreadPoolTaskExecutor  : Shutting down ExecutorService 'applicationTaskExecutor'
+2023-04-19 15:00:58.353  INFO 780 --- [SpringContextShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2023-04-19 15:00:58.418  INFO 780 --- [SpringContextShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
