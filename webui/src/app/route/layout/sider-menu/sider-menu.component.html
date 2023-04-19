@@ -1,0 +1,26 @@
+<ng-container *ngFor="let menu of menus">
+  <li nz-menu-item
+      nz-tooltip
+      nzPlacement="right"
+      *ngIf="menu.childList.length === 0"
+      [routerLink]="menu.router"
+      [nzTitle]="isCollapsed ? menu.title:''"
+      [title]="menu.title"
+      [class.selectedMenuOn]="menu.selected"
+      (click)="selectedMenu(menu)">
+    <i nz-icon [nzType]="menu.icon" nzTheme="outline"></i>{{isCollapsed ? '' : menu.title}}
+  </li>
+  <li nz-submenu *ngIf="menu.childList.length > 0"
+      [nzTitle]="isCollapsed ? '':menu.title"
+      [nzIcon]="menu.icon"
+      [(nzOpen)]="menu.open"
+      (nzOpenChange)="OpenChange(menu)"
+      [class.yz-submenu]="isCollapsed"
+      [title]="menu.title">
+    <ul>
+      <app-sider-menu [menus]="menu.childList"></app-sider-menu>
+    </ul>
+  </li>
+</ng-container>
+
+

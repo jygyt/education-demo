@@ -1,0 +1,363 @@
+<div class="default-cont "
+     [class.isFullscreen]="bigScreenService.isFullscreen() === true && isFullscreen">
+  <!--筛选条件区 start-->
+  <div nz-row class="yz-screen-box-row">
+    <div nz-col nzXs="24" nzSm="24" nzMd="24" nzLg="8" nzXl="8" class="yz-screen-box-col">
+      <span class="yz-screen-box-col-left"  style="width: auto" title="账号">账号：</span>
+      <div class="yz-screen-box-col-right">
+        <input nz-input placeholder="请输入……" [(ngModel)]="screenBoxItem.account"/>
+      </div>
+    </div>
+
+    <div nz-col nzXs="24" nzSm="24" nzMd="24" nzLg="8" nzXl="8" class="yz-screen-box-col">
+      <span class="yz-screen-box-col-left" title="权限">权限：</span>
+      <div class="yz-screen-box-col-right"  style="height: 32px;padding: 0;display: inline-block;">
+        <nz-select style="width:100%;" nzAllowClear nzPlaceHolder="请选择……" [(ngModel)]="screenBoxItem.level">
+          <nz-option nzValue="0" nzLabel="超级管理员"></nz-option>
+          <nz-option nzValue="1" nzLabel="管理员"></nz-option>
+          <nz-option nzValue="2" nzLabel="普通用户"></nz-option>
+        </nz-select>
+      </div>
+    </div>
+
+    <div nz-col nzXs="24" nzSm="24" nzMd="24" nzLg="8" nzXl="8"
+         class="yz-screen-box-col yz-screen-box-col-btn">
+      <div class="yz-screen-box-col-right" [style.width]="'100%'">
+        <button nz-button nzType="primary" [nzLoading]="tableParams.tableLoading" (click)="queryListByBtn()">查询</button>
+        <button nz-button nzType="default" [nzLoading]="tableParams.tableLoading" (click)="resetScreenBoxItem()">重置</button>
+      </div>
+    </div>
+  </div>
+  <!--筛选条件区 end-->
+
+
+  <!--功能区 start-->
+  <div class="yz-function-box">
+    <div class="yz-function-btn ">
+      <button nz-button nzType="primary" (click)="openEditModal('新增账号')">
+        <i nz-icon nzType="plus" nzTheme="outline"></i>新增
+      </button>
+    </div>
+    <div class="table-set-btn">
+          <span nz-dropdown
+                nzTrigger="click"
+                [nzOverlayClassName]="'columHeightMenu'"
+                [nzDropdownMenu]="menu">
+             <i nz-icon nzType="colum-height" nzTheme="outline"
+                nz-tooltip nzTooltipTitle="密度"></i>
+          </span>
+      <nz-dropdown-menu #menu="nzDropdownMenu">
+        <ul nz-menu>
+          <li nz-menu-item *ngFor="let item of columHeightList;let i=index;" [nzSelected]="item.selected"
+              (click)="setColumHeight(item.value,i)">
+            {{ item.label }}
+          </li>
+        </ul>
+      </nz-dropdown-menu>
+
+      <span *ngIf="bigScreenService.isFullscreen() === true && isFullscreen;else isFullScree"
+            (click)="setExitsFullscreen()">
+            <i nz-icon nzType="fullscreen-exit" nzTheme="outline" nz-tooltip nzTooltipTitle="退出全屏"></i>
+          </span>
+      <ng-template #isFullScree>
+          <span (click)="setFullscreen()">
+                 <i nz-icon nzType="fullscreen" nzTheme="outline" nz-tooltip nzTooltipTitle="全屏"></i>
+          </span>
+      </ng-template>
+      <span (click)="setReload()">
+                <i nz-icon nzType="reload" nzTheme="outline" nz-tooltip nzTooltipTitle="刷新"></i>
+          </span>
+      <span nz-dropdown
+            nzTrigger="click"
+            [nzDropdownMenu]="menuColumn"
+            [nzOverlayClassName]="'menuColumn'">
+            <i nz-icon nzType="setting" nzTheme="outline" nz-tooltip nzTooltipTitle="列设置"></i>
+          </span>
+      <nz-dropdown-menu #menuColumn="nzDropdownMenu">
+        <ul nz-menu [sortablejs]="columnParams.data"
+            [sortablejsOptions]="setTableOptions"
+        >
+          <li nz-menu-item class="ignore-elements">
+            <label nz-checkbox
+                   [(ngModel)]="columnParams.columnShow"
+                   [nzIndeterminate]="columnParams.Indeterminate"
+                   (ngModelChange)="checkedColumn($event)">列展示</label>
+            <a href="javascript:;" (click)="resetColumnShow()">重置</a>
+          </li>
+          <li nz-menu-divider class="ignore-elements"></li>
+          <h4 *ngIf="columnParams.hasFixedLeft" class="ignore-elements">固定在左侧</h4>
+          <ng-container *ngFor="let item of columnParams.data">
+            <li nz-menu-item *ngIf="item.fixedLeft && !item.fixedRight">
+              <em style="display: none">{{item.label}}</em>
+              <label nz-checkbox [(ngModel)]="item.status"
+                     (ngModelChange)="refreshColumnShow()">{{item.label}}</label>
+              <ng-container>
+                <i *ngIf="!item.fixedRight" nz-icon nzType="pushpin" nzTheme="outline" nz-tooltip
+                   nzTooltipTitle="固定到右侧"
+                   (click)="fixedColumn(item,'right')"></i>
+                <i *ngIf="item.fixedRight" nz-icon nzType="vertical-align-middle" nzTheme="outline" nz-tooltip
+                   nzTooltipTitle="取消固定" (click)="cancelFixedColumn(item)"></i>
+              </ng-container>
+              <ng-container>
+                <i *ngIf="!item.fixedLeft" nz-icon nzType="pushpin" nzTheme="outline" nz-tooltip
+                   nzTooltipTitle="固定到左侧"
+                   class="pushpin-left"
+                   (click)="fixedColumn(item,'left')"></i>
+                <i *ngIf="item.fixedLeft" nz-icon nzType="vertical-align-middle" nzTheme="outline" nz-tooltip
+                   nzTooltipTitle="取消固定"
+                   class="pushpin-left"
+                   (click)="cancelFixedColumn(item)"></i>
+              </ng-container>
+            </li>
+          </ng-container>
+          <h4 *ngIf="columnParams.hasFixedLeft || columnParams.hasFixedRight" class="ignore-elements">不固定</h4>
+          <ng-container *ngFor="let item of columnParams.data">
+            <li nz-menu-item *ngIf="!item.fixedLeft && !item.fixedRight">
+              <em style="display: none">{{item.label}}</em>
+              <label nz-checkbox [(ngModel)]="item.status"
+                     (ngModelChange)="refreshColumnShow()">{{item.label}}</label>
+              <ng-container>
+                <i *ngIf="!item.fixedRight" nz-icon nzType="pushpin" nzTheme="outline" nz-tooltip
+                   nzTooltipTitle="固定到右侧"
+                   (click)="fixedColumn(item,'right')"></i>
+              </ng-container>
+              <ng-container>
+                <i *ngIf="!item.fixedLeft" nz-icon nzType="pushpin" nzTheme="outline" nz-tooltip
+                   nzTooltipTitle="固定到左侧"
+                   class="pushpin-left"
+                   (click)="fixedColumn(item,'left')"></i>
+              </ng-container>
+            </li>
+          </ng-container>
+
+
+          <h4 *ngIf="columnParams.hasFixedRight" class="ignore-elements">固定在右侧</h4>
+          <ng-container *ngFor="let item of columnParams.data">
+            <li nz-menu-item *ngIf="!item.fixedLeft && item.fixedRight">
+              <em style="display: none">{{item.label}}</em>
+              <label nz-checkbox [(ngModel)]="item.status"
+                     (ngModelChange)="refreshColumnShow()">{{item.label}}</label>
+              <ng-container>
+                <i *ngIf="!item.fixedRight" nz-icon nzType="pushpin" nzTheme="outline" nz-tooltip
+                   nzTooltipTitle="固定到右侧"
+                   (click)="fixedColumn(item,'right')"></i>
+                <i *ngIf="item.fixedRight" nz-icon nzType="vertical-align-middle" nzTheme="outline" nz-tooltip
+                   nzTooltipTitle="取消固定" (click)="cancelFixedColumn(item)"></i>
+              </ng-container>
+              <ng-container>
+                <i *ngIf="!item.fixedLeft" nz-icon nzType="pushpin" nzTheme="outline" nz-tooltip
+                   nzTooltipTitle="固定到左侧"
+                   class="pushpin-left"
+                   (click)="fixedColumn(item,'left')"></i>
+                <i *ngIf="item.fixedLeft" nz-icon nzType="vertical-align-middle" nzTheme="outline" nz-tooltip
+                   nzTooltipTitle="取消固定"
+                   class="pushpin-left"
+                   (click)="cancelFixedColumn(item)"></i>
+              </ng-container>
+
+            </li>
+          </ng-container>
+
+        </ul>
+      </nz-dropdown-menu>
+    </div>
+    <div style="clear: both;"></div>
+  </div>
+  <!--功能区 end-->
+
+
+  <!--表格区 start-->
+  <nz-table #basicTable [nzData]="listOfData"
+            [nzScroll]="{ x: tableParams.tableScrollWidth }" [nzLoading]="tableParams.tableLoading"
+            [nzShowPagination]="false"
+            [nzPageSize]="tableParams.pageSize"
+            [nzPageIndex]="tableParams.pageIndex"
+            [nzTotal]="tableParams.total"
+            [nzShowSizeChanger]="false"
+            [nzSize]="tableParams.size"
+            class="yz-table-box query-table-box"
+  >
+    <thead>
+    <tr>
+      <ng-container *ngFor="let item of columnParams.data">
+        <th *ngIf="item.status"
+            [nzShowSort]="item.showSort"
+            (nzSortChange)="sortChange($event,item.value)"
+            [nzWidth]="item.width+'px'"
+            [nzLeft]="item.fixedLeft ? item.distance : null"
+            [nzRight]="item.fixedRight ? item.distance : null"
+        >{{ item.label }}
+        </th>
+      </ng-container>
+    </tr>
+    </thead>
+
+    <tbody>
+    <tr *ngFor="let data of listOfData; let i=index;">
+      <ng-container *ngFor="let item of columnParams.data">
+
+        <td *ngIf="item.status"
+            [nzLeft]="item.fixedLeft ? item.distance : null"
+            [nzRight]="item.fixedRight ? item.distance : null"
+            nzBreakWord
+        >
+          <ng-container [ngSwitch]="item.value">
+
+            <ng-container *ngSwitchCase="'level'">
+              <span *ngIf="data.level === 0 ">admin</span>
+              <span *ngIf="data.level === 1 ">管理员</span>
+              <span *ngIf="data.level === 2 ">普通用户</span>
+            </ng-container>
+
+            <ng-container *ngSwitchCase="'gmtCreate'">
+              {{ data[item.value] | date:'yyyy-MM-dd HH:mm:ss' }}
+            </ng-container>
+
+            <ng-container *ngSwitchCase="'opt'">
+              <a (click)="openResetPwd(data.account)" style="margin-right: 10px">重置密码</a>
+              <a (click)="EditAccount(data)" style="margin-right: 10px" *ngIf="data.level !== 0" >编辑</a>
+              <a nz-popconfirm
+                 nzPopconfirmTitle="确定删除此条记录吗?"
+                 nzPopconfirmPlacement="bottom"
+                 (nzOnConfirm)="confirmDelete(data.id)" style="margin-right: 10px" *ngIf="data.level !== 0" >删除</a>
+            </ng-container>
+            <ng-container *ngSwitchDefault>
+              {{ data[item.value] || '--'}}
+            </ng-container>
+          </ng-container>
+        </td>
+      </ng-container>
+    </tr>
+    </tbody>
+  </nz-table>
+  <!--表格区 end-->
+  <!--分页工具栏 start-->
+  <div class="yz-pagination-box">
+    <nz-pagination
+      [nzPageIndex]="tableParams.pageIndex"
+      [nzTotal]="tableParams.total"
+      nzShowSizeChanger
+      [nzPageSize]="tableParams.pageSize"
+      (nzPageIndexChange)="PageIndexChange($event)"
+      (nzPageSizeChange)="PageSizeChange($event)"></nz-pagination>
+    <span class="yz-pagination-total">共 {{tableParams.total}} 条数据</span>
+  </div>
+  <!--分页工具栏 end-->
+</div>
+
+
+<nz-modal [(nzVisible)]="AccountEditModal.IsVisible"
+          [nzTitle]="AccountEditModal.title"
+          (nzOnCancel)="AccountEditModal.IsVisible = !AccountEditModal.IsVisible"
+          (nzOnOk)="saveAccountEdit()"
+          [nzOkLoading]="AccountEditModal.saveLoading"
+          [nzOkDisabled]="!accountEditForm.valid"
+          nzMaskClosable="false">
+  <form nz-form [formGroup]="accountEditForm">
+    <nz-form-item>
+      <nz-form-label nzXs="24" nzSm="7" nzFor="account" nzRequired>账号
+      </nz-form-label>
+      <nz-form-control nzXs="24" nzSm="17" [nzErrorTip]="'请输入账号!'">
+        <input nz-input formControlName="account" placeholder="请输入账号……" maxlength="50"/>
+      </nz-form-control>
+    </nz-form-item>
+
+    <nz-form-item>
+      <nz-form-label nzXs="24" nzSm="7" nzFor="level" nzRequired>权限
+      </nz-form-label>
+      <nz-form-control nzXs="24" nzSm="17" [nzErrorTip]="'请选择!'">
+        <nz-radio-group formControlName="level" [nzButtonStyle]="'solid'">
+          <label nz-radio-button nzValue="1">管理员</label>
+          <label nz-radio-button nzValue="2">用户</label>
+        </nz-radio-group>
+      </nz-form-control>
+    </nz-form-item>
+
+    <nz-form-item>
+      <nz-form-label nzXs="24" nzSm="7" nzRequired nzFor="password">密码
+      </nz-form-label>
+      <nz-form-control nzXs="24" nzSm="17" nzErrorTip="请填写密码！">
+<!--        <input type="password" nz-input style="position: fixed; bottom: -9999px; display: none"  maxlength="30"/>-->
+        <input nz-input
+               type="text"
+               id="password" formControlName="password" placeholder="请填写密码……"
+               onfocus="this.type='text'"
+               autocomplete="new-password"
+               (ngModelChange)="updateConfirmValidator()"
+               maxlength="30"/>
+      </nz-form-control>
+    </nz-form-item>
+
+
+    <nz-form-item>
+      <nz-form-label nzXs="24" nzSm="7" nzRequired nzFor="password2">请再次输入密码
+      </nz-form-label>
+      <nz-form-control nzXs="24" nzSm="17" [nzErrorTip]="errorPasswordTpl">
+        <input type="password" nz-input style="position: fixed; bottom: -9999px; display: none"  maxlength="30"/>
+        <input nz-input type="password" formControlName="password2" placeholder="请再次输入密码……" id="password2"
+               onfocus="this.type='password'"
+               autocomplete="new-password"
+               maxlength="30"/>
+        <ng-template #errorPasswordTpl let-control>
+          <ng-container *ngIf="control.hasError('required')">
+            请再次输入密码！
+          </ng-container>
+          <ng-container *ngIf="control.hasError('confirm')">
+            两次密码不同，请重新输入！
+          </ng-container>
+        </ng-template>
+      </nz-form-control>
+    </nz-form-item>
+  </form>
+</nz-modal>
+
+
+<nz-modal [(nzVisible)]="EditModal.IsVisible"
+          [nzTitle]="EditModal.title"
+          (nzOnCancel)="EditModal.IsVisible = !EditModal.IsVisible"
+          (nzOnOk)="editAccount()"
+          [nzOkLoading]="EditModal.saveLoading"
+          [nzOkDisabled]="!EditForm.valid"
+          nzMaskClosable="false">
+  <form nz-form [formGroup]="EditForm">
+    <nz-form-item>
+      <nz-form-label nzXs="24" nzSm="5" nzFor="account" nzRequired>账号
+      </nz-form-label>
+      <nz-form-control nzXs="24" nzSm="18" [nzErrorTip]="'请输入账号!'">
+        <input nz-input formControlName="account" placeholder="请输入账号……" maxlength="50"/>
+      </nz-form-control>
+    </nz-form-item>
+
+    <nz-form-item>
+      <nz-form-label nzXs="24" nzSm="5" nzFor="level" nzRequired>权限
+      </nz-form-label>
+      <nz-form-control nzXs="24" nzSm="18" [nzErrorTip]="'请选择!'">
+        <nz-radio-group formControlName="level" [nzButtonStyle]="'solid'">
+          <label nz-radio-button nzValue="1">管理员</label>
+          <label nz-radio-button nzValue="2">用户</label>
+        </nz-radio-group>
+      </nz-form-control>
+    </nz-form-item>
+
+  </form>
+</nz-modal>
+
+<nz-modal [(nzVisible)]="resetPwdModal.IsVisible"
+          [nzTitle]="resetPwdModal.title"
+          (nzOnCancel)="resetPwdModal.IsVisible = !resetPwdModal.IsVisible"
+          (nzOnOk)="resetPassword()"
+          [nzOkLoading]="resetPwdModal.saveLoading"
+          [nzOkDisabled]="!resetPwdForm.valid"
+          nzMaskClosable="false">
+  <form nz-form [formGroup]="resetPwdForm">
+    <nz-form-item>
+      <nz-form-label nzXs="24" nzSm="5" nzFor="resetPwd" nzRequired>重置密码
+      </nz-form-label>
+      <nz-form-control nzXs="24" nzSm="18" [nzErrorTip]="'密码不能为空!'">
+        <input nz-input formControlName="resetPwd"  maxlength="50"/>
+        <p style="color: rgb(217, 217, 217);">可以将默认值修改为你想要的密码</p>
+      </nz-form-control>
+    </nz-form-item>
+  </form>
+</nz-modal>
+

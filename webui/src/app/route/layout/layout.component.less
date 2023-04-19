@@ -1,0 +1,280 @@
+@yz-z-index: 10;
+@yz-background: #263346;
+@yz-active-background: #1990fc;
+@yz-sider-background: #212b3b;
+@yz-hover-background: #1d2735;
+@yz-text-indent: 0.5em;
+@yz-text-align: center;
+@yz-height: 64px;
+@yz-inline-block: inline-block; // 显示类型
+@yz-mini-logo-width: 80px; // 折叠时宽度
+@yz-max-logo-width: 220px; // 展开式宽度
+@yz-font-size: 18px; // 展开式宽度
+@yz-cursor: pointer;
+@yz-position-fixed: fixed;
+@yz-float-right: right;
+
+// logo
+@yz-logo-height: 37px; // logo高度
+@yz-logo-margin-top: -3px;
+
+.logo {
+  background: @yz-background;
+  height: @yz-height;
+  line-height: @yz-height;
+  float: left;
+}
+
+.yz-logo { // 图标父元素
+  text-align: @yz-text-align;
+  display: @yz-inline-block;
+  img { // 图标
+    height: @yz-logo-height;
+    margin-top: @yz-logo-margin-top;
+  }
+}
+
+.yz-mini-logo-width { // 折叠式图标父元素
+  width: @yz-mini-logo-width;
+}
+
+.yz-max-logo-width { // 展开时图标父元素
+  width: @yz-max-logo-width;
+}
+
+.yz-arrow, .yz-app {
+  display: @yz-inline-block;
+  cursor: @yz-cursor;
+  transition: background .5s;
+  &:hover {
+    background: @yz-hover-background;
+  }
+  .trigger {
+    font-size: @yz-font-size;
+    line-height: @yz-height;
+    padding: 0 23px;
+    cursor: @yz-cursor;
+    color: #fff;
+  }
+}
+
+.yz-app {
+  font-size: 14px;
+  color: #fff;
+  padding: 0 20px;
+  font-weight: bold;
+}
+
+nz-header {
+  background: @yz-background;
+  padding: 0;
+  width: 100%;
+  height: @yz-height;
+  position: @yz-position-fixed;
+  top: 0;
+  left: 0;
+  z-index: @yz-z-index;
+}
+
+.ant-layout-sider {
+  width: @yz-max-logo-width !important;
+  flex: initial !important;
+  max-width: @yz-max-logo-width !important;
+  min-width: @yz-max-logo-width !important;
+  position: @yz-position-fixed;
+  top: 0;
+  left: 0;
+  height: 100%;
+  overflow: hidden;
+  z-index: 9;
+  ::ng-deep .sider-ul {
+    overflow-y: auto;
+    height: 100%;
+    padding: 80px 0;
+    width: 100%;
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+    background: @yz-sider-background;
+    li {
+      margin: 0;
+      outline: none;
+    }
+    ul {
+      background: #1D2533;
+      li {
+        //text-indent: 0.2em;
+        ul {
+          background: #283447;
+          li {
+            //text-indent: 0.4em;
+            ul {
+              background: #000c17;
+              li {
+                //text-indent: 0.6em;
+                ul {
+                  background: #0E1D28;
+                  li {
+                    //text-indent: 0.8em;
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+    ::ng-deep .ant-menu-inline.ant-menu-sub {
+      background: @yz-sider-background;
+    }
+    .ant-menu-submenu-active, .ant-menu-item:hover,.selectedMenuOn {
+      background: @yz-active-background;
+      color: #fff;
+    }
+    ::ng-deep .ant-menu-submenu-title {
+      margin: 0;
+    }
+  }
+  .sider-ul::-webkit-scrollbar {
+    width: 0 !important
+  }
+  &.ant-layout-sider-collapsed {
+    width: @yz-mini-logo-width !important;
+    flex: initial !important;
+    max-width: @yz-mini-logo-width !important;
+    min-width: @yz-mini-logo-width !important;
+  }
+}
+
+.yz-sider-septor {
+  padding: 4px 20px;
+  overflow: hidden;
+  cursor: @yz-cursor;
+  img {
+    float: left;
+    width: 40px;
+  }
+  .yz-sider-septor-intro {
+    margin-left: 50px;
+    margin-bottom: 4px;
+    h4 {
+      line-height: 24px;
+      margin-bottom: 0;
+      font-size: 14px;
+      color: #dedfe2;
+    }
+    p {
+      line-height: 20px;
+      font-size: 12px;
+      margin-bottom: 0;
+      color: #858b94;
+    }
+    h4, p {
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+  }
+}
+
+.user-container {
+  float: @yz-float-right;
+  li {
+    position: relative;
+    margin-right: 20px;
+    line-height: @yz-height;
+    a {
+      display: block;
+      color: #fff;
+      padding: 0 20px;
+      transition: .5s;
+      -webkit-transition: .5s;
+      -o-transition: .5s;
+      -moz-transition: .5s;
+      overflow: hidden;
+      &:hover {
+        background: @yz-hover-background;
+      }
+    }
+    .header_submenu {
+      position: absolute;
+      right: -28px;
+      top: 56px;
+      width: 204px;
+      background: #fff;
+      box-shadow: 0 8px 12px 0 #d0c2c2;
+      z-index: @yz-z-index;
+      display: none;
+      a {
+        display: block;
+        line-height: 45px;
+        background: #fff;
+        color: #585858;
+        text-align: @yz-text-align;
+        transition: .5s;
+        -webkit-transition: .5s;
+        -o-transition: .5s;
+        -moz-transition: .5s;
+        &:hover {
+          color: #fff;
+          background-color: #2e3e56;
+        }
+      }
+    }
+    &:hover {
+      .header_submenu {
+        display: block;
+      }
+    }
+  }
+}
+
+nz-content {
+  nz-card {
+    width: 100%;
+  }
+}
+
+.breadcrumb-bar {
+  ::ng-deep .ant-breadcrumb-link a {
+    color: #595959;
+    cursor: initial;
+  }
+}
+
+.default-content {
+  background-color: #f5f5f5;
+  width: 100%;
+  height: 100%;
+  overflow-x: hidden;
+  overflow-y: auto;
+}
+
+::ng-deep .yz-back-top .ant-back-top {
+  right: 55px;
+}
+
+
+.userImg{
+  width: 32px;
+  height:32px;
+  float: left;
+  border-radius: 50%;
+  margin-top: 18px;
+  margin-right: 15px;
+  background: #ccc;
+  svg{
+    position: absolute;
+    top: 22px;
+    left: 25px;
+    fill: #ffffff;
+  }
+  //img{
+  //  width: 35px;
+  //  height: 35px;
+  //}
+}
+
+.userAcnt{
+  float: right;
+}
+

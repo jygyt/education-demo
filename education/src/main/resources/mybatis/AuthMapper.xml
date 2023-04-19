@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.yunzainfo.education.dao.mapper.AuthMapper">
+    <resultMap id="authListMap" type="com.yunzainfo.education.entity.auth.AuthEntity">
+        <result column="created_auth_id" property="createdAuthId"/>
+        <result column="gmt_create" property="gmtCreate"/>
+        <result column="gmt_modified" property="gmtModified"/>
+    </resultMap>
+    <!--帐号列表-->
+    <select id="findAuthList" resultMap="authListMap">
+        SELECT id, account,  created_auth_id, level, gmt_create, gmt_modified
+        FROM auth
+        WHERE status_auth = 0
+        ORDER BY gmt_create DESC
+    </select>
+
+    <!--根据账号和等级权限查询账户列表-->
+    <select id="findAuthListByAccountAndLevel" resultMap="authListMap">
+        SELECT id, account,  created_auth_id, level, gmt_create, gmt_modified
+        FROM auth
+        <where>
+            <if test="account !=null and account !=''">
+                AND account LIKE concat('%',#{account},'%')
+            </if>
+            <if test="level !=null">
+                AND level = #{level}
+            </if>
+            AND status_auth = 0
+        </where>
+        ORDER BY gmt_create DESC
+    </select>
+
+    <!--根据id查询账户信息-->
+    <select id="findAuthById" resultMap="authListMap">
+        SELECT id, account,  created_auth_id, level, gmt_create, gmt_modified
+        FROM auth WHERE id = #{id} AND status_auth =0
+    </select>
+
+    <select id="findByAccount" resultType="com.yunzainfo.education.dao.table.Auth">
+        SELECT id,account,created_auth_id createdAuthId,level,gmt_create gmtCreate,gmt_modified gmtModified,password,`lock`,status_auth statusAuth, refresh_token refreshToken FROM auth WHERE account = #{account} AND status_auth =0
+    </select>
+
+    <select id="selectAuthById" resultType="com.yunzainfo.education.dao.table.Auth">
+        SELECT id,account,created_auth_id createdAuthId,level,gmt_create gmtCreate,gmt_modified gmtModified,password,`lock`,status_auth statusAuth, refresh_token refreshToken  FROM auth WHERE id = #{id} AND status_auth =0
+    </select>
+</mapper>

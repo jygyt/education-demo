@@ -1,0 +1,96 @@
+<nz-layout style="height: 100%;">
+  <nz-header>
+    <!--logo-->
+    <div class="logo">
+<!--      <a *ngIf="isCollapsed" @logoChange class="yz-logo yz-mini-logo-width">-->
+<!--        <img src='./assets/imgs/yz-small.png'/>-->
+<!--      </a>-->
+
+<!--      <a *ngIf="!isCollapsed" @logoChange class="yz-logo yz-max-logo-width">-->
+<!--        <img src='./assets/imgs/yz-big.png'/>-->
+<!--      </a>-->
+
+      <div class="yz-sider-septor" style="margin-top: 7px;" >
+        <img src="./assets/imgs/applicationLogo.png" (click)="backDisplay()"/>
+        <div class="yz-sider-septor-intro" *ngIf="!isCollapsed">
+          <h4 class="yz-sider-intro-h4">云在智能教室网关系统</h4>
+          <p class="yz-sider-intro-p">云在智能教室网关系统</p>
+        </div>
+      </div>
+    </div>
+
+    <!--按钮-->
+    <a class="yz-arrow">
+      <i
+        class="trigger"
+        nz-icon
+        [nzType]="isCollapsed ? 'menu-unfold' : 'menu-fold'"
+        (click)="isCollapsed = !isCollapsed">
+      </i>
+    </a>
+<!--    <nz-avatar style="float: right" nzIcon="user" nzSrc="//zos.alipayobjects.com/rmsportal/ODTLcjxAfvqbxHnVXCYX.png"></nz-avatar>-->
+
+    <!--用户信息-->
+    <ul class="user-container">
+      <li class="user-item hidden-xs">
+        <a href="javascript:void(0)">
+          <!--      header user-->
+          <div class="div_user_logo">
+            <div class="userImg">
+<!--              <img src='./assets/imgs/user-icon.png'>-->
+              <svg t="1621322694173" class="icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="2519"
+                   width="22" height="22"><path d="M917.965523 917.331585c0 22.469758-17.891486 40.699957-39.913035 40.699957-22.058388 0-39.913035-18.2302-39.913035-40.699957l-0.075725-0.490164-1.087774 0c-18.945491-157.665903-148.177807-280.296871-306.821991-285.4748-3.412726 0.151449-6.751774 0.562818-10.240225 0.562818-3.450589 0-6.789637-0.410346-10.202363-0.524956-158.606321 5.139044-287.839661 127.806851-306.784128 285.436938l-1.014096 0 0.075725 0.490164c0 22.469758-17.854647 40.699957-39.913035 40.699957s-39.915082-18.2302-39.915082-40.699957l-0.373507-3.789303c0-6.751774 2.026146-12.903891 4.91494-18.531052 21.082154-140.712789 111.075795-258.241552 235.432057-312.784796C288.420387 530.831904 239.989351 444.515003 239.989351 346.604042c0-157.591201 125.33352-285.361213 279.924387-285.361213 154.62873 0 279.960203 127.770012 279.960203 285.361213 0 97.873098-48.391127 184.15316-122.103966 235.545644 124.843356 54.732555 215.099986 172.863023 235.808634 314.211285 2.437515 5.290493 4.01443 10.992355 4.01443 17.181311L917.965523 917.331585zM719.822744 346.679767c0-112.576985-89.544409-203.808826-199.983707-203.808826-110.402459 0-199.944821 91.232864-199.944821 203.808826s89.542362 203.808826 199.944821 203.808826C630.278335 550.488593 719.822744 459.256752 719.822744 346.679767z" p-id="2520"
+                                                fill="#ffffff"></path></svg>
+            </div>
+            <span class="userAcnt">{{account}}</span>
+<!--            <span >-->
+<!--              <nz-avatar style="float: right" nzIcon="user" nzSrc="//zos.alipayobjects.com/rmsportal/ODTLcjxAfvqbxHnVXCYX.png"></nz-avatar>-->
+<!--            </span>-->
+          </div>
+
+        </a>
+        <div class="header_submenu">
+          <a href="javascript:void(0)" class="header_exit_link" (click)="resetPassword()">重置密码</a>
+          <a href="javascript:void(0)" class="header_exit_link" (click)="clickOutLogin()">退出登录</a>
+        </div>
+      </li>
+    </ul>
+
+  </nz-header>
+  <nz-sider
+    nzCollapsible
+    [(nzCollapsed)]="isCollapsed"
+    [nzBreakpoint]="'md'"
+    [nzCollapsedWidth]="80"
+    [nzTrigger]="null">
+
+    <!--左侧导航-->
+    <ul nz-menu nzTheme="dark" nzMode="inline" [nzInlineCollapsed]="isCollapsed" class="sider-ul">
+      <!--应用介绍-->
+<!--      <div class="yz-sider-septor" @logoChange [nzTitle]="'智能主机管理系统'"-->
+<!--           nzPlacement="right" nz-tooltip>-->
+<!--        <img src="./assets/imgs/applicationLogo.png"/>-->
+<!--        <div class="yz-sider-septor-intro" *ngIf="!isCollapsed">-->
+<!--          <h4 class="yz-sider-intro-h4">智能主机管理系统</h4>-->
+<!--          <p class="yz-sider-intro-p">智能主机管理系统</p>-->
+<!--        </div>-->
+<!--      </div>-->
+
+
+      <app-sider-menu [menus]="siderData" [isCollapsed]="isCollapsed">
+      </app-sider-menu>
+    </ul>
+
+  </nz-sider>
+  <nz-layout style="margin-top: 64px" [style.margin-left]="isCollapsed?'80px':'220px'">
+    <div class="default-content" #customBackTopTarget>
+      <div *ngIf="breadcrumbState == true" style="padding:24px;background:white">
+        <nz-breadcrumb class="breadcrumb-bar" [nzAutoGenerate]="true" [nzRouteLabel]="'breadcrumb'"></nz-breadcrumb>
+      </div>
+
+      <router-outlet></router-outlet>
+      <nz-back-top [nzTarget]="customBackTopTarget" class="yz-back-top"></nz-back-top>
+    </div>
+  </nz-layout>
+</nz-layout>
+

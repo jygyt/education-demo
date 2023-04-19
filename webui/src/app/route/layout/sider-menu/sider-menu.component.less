@@ -1,0 +1,42 @@
+// 菜单时收缩状态时去掉箭头，图标居中
+::ng-deep .yz-submenu.ant-menu-submenu.ant-menu-submenu-vertical {
+  .ant-menu-submenu-title {
+    text-align: center;
+
+    .anticon {
+      margin-right: 0;
+      font-size: 16px;
+    }
+  }
+
+  .ant-menu-submenu-arrow {
+    display: none;
+  }
+}
+
+::ng-deep .ant-menu-submenu-popup {
+  .yz-submenu.ant-menu-submenu-vertical {
+    .ant-menu-submenu-title {
+      text-align: left;
+
+      .anticon {
+        margin-right: 10px;
+        font-size: 14px;
+      }
+    }
+
+    .ant-menu-submenu-arrow {
+      display: inline-block;
+    }
+  }
+}
+
+::ng-deep .sider-ul.ant-menu-vertical{
+  .ant-menu-item {
+    text-align: center !important;
+
+    i {
+      margin: 0;
+    }
+  }
+}

@@ -1,0 +1,38 @@
+<table class="login-table">
+  <tbody>
+  <tr>
+    <td>
+      <div class="login-title">
+        <h3>云在智能教室网关系统</h3>
+      </div>
+      <form nz-form [formGroup]="validateForm" class="login-form" (ngSubmit)="submitForm()">
+        <nz-form-item>
+          <nz-form-control nzErrorTip="请输入登录账号！">
+            <nz-input-group nzPrefixIcon="user">
+              <input type="text" nz-input formControlName="account" placeholder="请输入登录账号……" autocomplete="off"/>
+              <input type="text" nz-input style="position: fixed; bottom: -9999px; display: none"/>
+            </nz-input-group>
+          </nz-form-control>
+        </nz-form-item>
+        <nz-form-item>
+          <nz-form-control nzErrorTip="请输入密码！">
+            <nz-input-group nzPrefixIcon="lock">
+              <input type="password" nz-input style="position: fixed; bottom: -9999px; display: none"/>
+              <input type="password" id="password"
+                     onfocus="this.type='password'"
+                     autocomplete="new-password"
+                     nz-input formControlName="password" placeholder="请输入密码……" />
+            </nz-input-group>
+          </nz-form-control>
+        </nz-form-item>
+        <nz-form-item>
+          <nz-form-control>
+            <button nz-button class="login-form-button" [nzType]="'primary'">登录</button>
+          </nz-form-control>
+        </nz-form-item>
+      </form>
+    </td>
+  </tr>
+  </tbody>
+
+</table>
