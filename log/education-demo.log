@@ -1,32 +1,55 @@
-2023-04-19 13:39:32.964  INFO 566 --- [main] c.y.education.DetectionApplication       : Starting DetectionApplication on localhost with PID 566 (/Users/jygyt/gitSpace/education-demo/education/target/classes started by jygyt in /Users/jygyt/gitSpace/education-demo)
-2023-04-19 13:39:32.968  INFO 566 --- [main] c.y.education.DetectionApplication       : No active profile set, falling back to default profiles: default
-2023-04-19 13:39:34.175  INFO 566 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFERRED mode.
-2023-04-19 13:39:34.304  INFO 566 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 108ms. Found 2 JPA repository interfaces.
-2023-04-19 13:39:35.335  INFO 566 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 80 (http)
-2023-04-19 13:39:35.346  INFO 566 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
-2023-04-19 13:39:35.347  INFO 566 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.38]
-2023-04-19 13:39:35.463  INFO 566 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
-2023-04-19 13:39:35.463  INFO 566 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 2431 ms
-2023-04-19 13:39:35.743  INFO 566 --- [main] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
-2023-04-19 13:39:35.797  INFO 566 --- [task-1] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
-2023-04-19 13:39:35.872  INFO 566 --- [task-1] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 5.4.21.Final
-2023-04-19 13:39:36.216  INFO 566 --- [task-1] o.hibernate.annotations.common.Version   : HCANN000001: Hibernate Commons Annotations {5.1.0.Final}
-2023-04-19 13:39:36.387  INFO 566 --- [task-1] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
-2023-04-19 13:39:37.547  INFO 566 --- [task-1] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
-2023-04-19 13:39:37.581  INFO 566 --- [task-1] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.MySQL5InnoDBDialect
-2023-04-19 13:39:40.475  INFO 566 --- [task-1] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
-2023-04-19 13:39:40.490  INFO 566 --- [task-1] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
-2023-04-19 13:39:41.571  INFO 566 --- [main] o.s.b.a.w.s.WelcomePageHandlerMapping    : Adding welcome page: class path resource [static/index.html]
-2023-04-19 13:39:42.493  WARN 566 --- [main] ConfigServletWebServerApplicationContext : Exception encountered during context initialization - cancelling refresh attempt: org.springframework.context.ApplicationContextException: Failed to start bean 'webServerStartStop'; nested exception is org.springframework.boot.web.server.PortInUseException: Port 80 is already in use
-2023-04-19 13:39:42.494  INFO 566 --- [main] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
-2023-04-19 13:39:42.497  INFO 566 --- [main] o.s.s.concurrent.ThreadPoolTaskExecutor  : Shutting down ExecutorService 'applicationTaskExecutor'
-2023-04-19 13:39:42.497  INFO 566 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
-2023-04-19 13:39:42.502  INFO 566 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
-2023-04-19 13:39:42.505  INFO 566 --- [main] o.apache.catalina.core.StandardService   : Stopping service [Tomcat]
-2023-04-19 13:39:42.517  INFO 566 --- [main] ConditionEvaluationReportLoggingListener : 
+2023-04-27 16:34:37.628  INFO 57700 --- [main] c.y.education.DetectionApplication       : Starting DetectionApplication on localhost with PID 57700 (/Users/jygyt/gitSpace/education-demo/education/target/classes started by jygyt in /Users/jygyt/gitSpace/education-demo)
+2023-04-27 16:34:37.655  INFO 57700 --- [main] c.y.education.DetectionApplication       : The following profiles are active: dev
+2023-04-27 16:34:38.703  INFO 57700 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFERRED mode.
+2023-04-27 16:34:38.812  INFO 57700 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 89ms. Found 5 JPA repository interfaces.
+2023-04-27 16:34:39.843  INFO 57700 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8081 (http)
+2023-04-27 16:34:39.861  INFO 57700 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2023-04-27 16:34:39.861  INFO 57700 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.38]
+2023-04-27 16:34:39.991  INFO 57700 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2023-04-27 16:34:39.991  INFO 57700 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 2226 ms
+2023-04-27 16:34:40.223  INFO 57700 --- [main] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2023-04-27 16:34:40.291  INFO 57700 --- [task-1] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2023-04-27 16:34:40.414  INFO 57700 --- [task-1] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 5.4.21.Final
+2023-04-27 16:34:40.677  INFO 57700 --- [task-1] o.hibernate.annotations.common.Version   : HCANN000001: Hibernate Commons Annotations {5.1.0.Final}
+2023-04-27 16:34:40.801  INFO 57700 --- [task-1] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2023-04-27 16:34:42.545  INFO 57700 --- [task-1] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2023-04-27 16:34:42.567  INFO 57700 --- [task-1] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.MySQL55Dialect
+2023-04-27 16:34:43.438  INFO 57700 --- [task-1] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2023-04-27 16:34:43.449  INFO 57700 --- [task-1] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2023-04-27 16:34:44.255  INFO 57700 --- [main] o.s.b.a.w.s.WelcomePageHandlerMapping    : Adding welcome page: class path resource [static/index.html]
+2023-04-27 16:34:45.117  INFO 57700 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8081 (http) with context path ''
+2023-04-27 16:34:45.118  INFO 57700 --- [main] DeferredRepositoryInitializationListener : Triggering deferred initialization of Spring Data repositories…
+2023-04-27 16:34:45.188  INFO 57700 --- [main] DeferredRepositoryInitializationListener : Spring Data repositories initialized!
+2023-04-27 16:34:45.197  INFO 57700 --- [main] c.y.education.DetectionApplication       : Started DetectionApplication in 8.356 seconds (JVM running for 10.761)
+2023-04-27 16:36:14.533  INFO 57861 --- [main] c.y.education.DetectionApplication       : Starting DetectionApplication on localhost with PID 57861 (/Users/jygyt/gitSpace/education-demo/education/target/classes started by jygyt in /Users/jygyt/gitSpace/education-demo)
+2023-04-27 16:36:14.536  INFO 57861 --- [main] c.y.education.DetectionApplication       : No active profile set, falling back to default profiles: default
+2023-04-27 16:36:16.087  INFO 57861 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFERRED mode.
+2023-04-27 16:36:16.184  INFO 57861 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 87ms. Found 5 JPA repository interfaces.
+2023-04-27 16:36:17.010  INFO 57861 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 80 (http)
+2023-04-27 16:36:17.024  INFO 57861 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2023-04-27 16:36:17.024  INFO 57861 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.38]
+2023-04-27 16:36:17.136  INFO 57861 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2023-04-27 16:36:17.136  INFO 57861 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 2467 ms
+2023-04-27 16:36:17.360  INFO 57861 --- [main] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2023-04-27 16:36:17.412  INFO 57861 --- [task-1] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2023-04-27 16:36:17.512  INFO 57861 --- [task-1] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 5.4.21.Final
+2023-04-27 16:36:17.706  INFO 57861 --- [task-1] o.hibernate.annotations.common.Version   : HCANN000001: Hibernate Commons Annotations {5.1.0.Final}
+2023-04-27 16:36:17.791  INFO 57861 --- [task-1] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2023-04-27 16:36:18.614  INFO 57861 --- [task-1] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2023-04-27 16:36:18.626  INFO 57861 --- [task-1] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.MySQL5InnoDBDialect
+2023-04-27 16:36:28.756  INFO 57861 --- [task-1] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2023-04-27 16:36:28.766  INFO 57861 --- [task-1] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2023-04-27 16:36:29.465  INFO 57861 --- [main] o.s.b.a.w.s.WelcomePageHandlerMapping    : Adding welcome page: class path resource [static/index.html]
+2023-04-27 16:36:30.073  WARN 57861 --- [main] ConfigServletWebServerApplicationContext : Exception encountered during context initialization - cancelling refresh attempt: org.springframework.context.ApplicationContextException: Failed to start bean 'webServerStartStop'; nested exception is org.springframework.boot.web.server.PortInUseException: Port 80 is already in use
+2023-04-27 16:36:30.075  INFO 57861 --- [main] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2023-04-27 16:36:30.078  INFO 57861 --- [main] o.s.s.concurrent.ThreadPoolTaskExecutor  : Shutting down ExecutorService 'applicationTaskExecutor'
+2023-04-27 16:36:30.078  INFO 57861 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2023-04-27 16:36:30.083  INFO 57861 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2023-04-27 16:36:30.086  INFO 57861 --- [main] o.apache.catalina.core.StandardService   : Stopping service [Tomcat]
+2023-04-27 16:36:30.097  INFO 57861 --- [main] ConditionEvaluationReportLoggingListener : 
 
 Error starting ApplicationContext. To display the conditions report re-run your application with 'debug' enabled.
-2023-04-19 13:39:42.523 ERROR 566 --- [main] o.s.b.d.LoggingFailureAnalysisReporter   : 
+2023-04-27 16:36:30.101 ERROR 57861 --- [main] o.s.b.d.LoggingFailureAnalysisReporter   : 
 
 ***************************
 APPLICATION FAILED TO START
@@ -40,30 +63,80 @@ Action:
 
 Identify and stop the process that's listening on port 80 or configure this application to listen on another port.
 
-2023-04-19 13:40:40.422  INFO 780 --- [main] c.y.education.DetectionApplication       : Starting DetectionApplication on localhost with PID 780 (/Users/jygyt/gitSpace/education-demo/education/target/classes started by jygyt in /Users/jygyt/gitSpace/education-demo)
-2023-04-19 13:40:40.442  INFO 780 --- [main] c.y.education.DetectionApplication       : The following profiles are active: dev
-2023-04-19 13:40:41.592  INFO 780 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFERRED mode.
-2023-04-19 13:40:41.701  INFO 780 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 91ms. Found 2 JPA repository interfaces.
-2023-04-19 13:40:42.451  INFO 780 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8081 (http)
-2023-04-19 13:40:42.467  INFO 780 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
-2023-04-19 13:40:42.467  INFO 780 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.38]
-2023-04-19 13:40:42.589  INFO 780 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
-2023-04-19 13:40:42.589  INFO 780 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1928 ms
-2023-04-19 13:40:42.825  INFO 780 --- [main] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
-2023-04-19 13:40:42.876  INFO 780 --- [task-1] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
-2023-04-19 13:40:42.970  INFO 780 --- [task-1] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 5.4.21.Final
-2023-04-19 13:40:43.227  INFO 780 --- [task-1] o.hibernate.annotations.common.Version   : HCANN000001: Hibernate Commons Annotations {5.1.0.Final}
-2023-04-19 13:40:43.389  INFO 780 --- [task-1] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
-2023-04-19 13:40:43.979  INFO 780 --- [task-1] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
-2023-04-19 13:40:44.003  INFO 780 --- [task-1] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.MySQL55Dialect
-2023-04-19 13:40:44.968  INFO 780 --- [task-1] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
-2023-04-19 13:40:44.978  INFO 780 --- [task-1] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
-2023-04-19 13:40:45.692  INFO 780 --- [main] o.s.b.a.w.s.WelcomePageHandlerMapping    : Adding welcome page: class path resource [static/index.html]
-2023-04-19 13:40:46.410  INFO 780 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8081 (http) with context path ''
-2023-04-19 13:40:46.412  INFO 780 --- [main] DeferredRepositoryInitializationListener : Triggering deferred initialization of Spring Data repositories…
-2023-04-19 13:40:46.434  INFO 780 --- [main] DeferredRepositoryInitializationListener : Spring Data repositories initialized!
-2023-04-19 13:40:46.443  INFO 780 --- [main] c.y.education.DetectionApplication       : Started DetectionApplication in 6.792 seconds (JVM running for 8.423)
-2023-04-19 15:00:58.321  INFO 780 --- [SpringContextShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
-2023-04-19 15:00:58.351  INFO 780 --- [SpringContextShutdownHook] o.s.s.concurrent.ThreadPoolTaskExecutor  : Shutting down ExecutorService 'applicationTaskExecutor'
-2023-04-19 15:00:58.353  INFO 780 --- [SpringContextShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
-2023-04-19 15:00:58.418  INFO 780 --- [SpringContextShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2023-04-27 16:36:42.603  INFO 57913 --- [main] c.y.education.DetectionApplication       : Starting DetectionApplication on localhost with PID 57913 (/Users/jygyt/gitSpace/education-demo/education/target/classes started by jygyt in /Users/jygyt/gitSpace/education-demo)
+2023-04-27 16:36:42.607  INFO 57913 --- [main] c.y.education.DetectionApplication       : No active profile set, falling back to default profiles: default
+2023-04-27 16:36:45.316  INFO 57913 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFERRED mode.
+2023-04-27 16:36:45.403  INFO 57913 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 77ms. Found 5 JPA repository interfaces.
+2023-04-27 16:36:45.993  INFO 57913 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8081 (http)
+2023-04-27 16:36:46.005  INFO 57913 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2023-04-27 16:36:46.005  INFO 57913 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.38]
+2023-04-27 16:36:46.118  INFO 57913 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2023-04-27 16:36:46.118  INFO 57913 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 3379 ms
+2023-04-27 16:36:46.296  INFO 57913 --- [main] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2023-04-27 16:36:46.332  INFO 57913 --- [task-1] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2023-04-27 16:36:46.407  INFO 57913 --- [task-1] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 5.4.21.Final
+2023-04-27 16:36:46.601  INFO 57913 --- [task-1] o.hibernate.annotations.common.Version   : HCANN000001: Hibernate Commons Annotations {5.1.0.Final}
+2023-04-27 16:36:46.694  INFO 57913 --- [task-1] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2023-04-27 16:36:47.625  INFO 57913 --- [task-1] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2023-04-27 16:36:47.649  INFO 57913 --- [task-1] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.MySQL5InnoDBDialect
+2023-04-27 16:36:51.171  INFO 57913 --- [task-1] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2023-04-27 16:36:51.180  INFO 57913 --- [task-1] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2023-04-27 16:36:51.777  INFO 57913 --- [main] o.s.b.a.w.s.WelcomePageHandlerMapping    : Adding welcome page: class path resource [static/index.html]
+2023-04-27 16:36:52.495  INFO 57913 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8081 (http) with context path ''
+2023-04-27 16:36:52.497  INFO 57913 --- [main] DeferredRepositoryInitializationListener : Triggering deferred initialization of Spring Data repositories…
+2023-04-27 16:36:52.624  INFO 57913 --- [main] DeferredRepositoryInitializationListener : Spring Data repositories initialized!
+2023-04-27 16:36:52.636  INFO 57913 --- [main] c.y.education.DetectionApplication       : Started DetectionApplication in 11.01 seconds (JVM running for 11.963)
+2023-04-27 16:39:09.216  INFO 57913 --- [SpringContextShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2023-04-27 16:39:09.220  INFO 57913 --- [SpringContextShutdownHook] o.s.s.concurrent.ThreadPoolTaskExecutor  : Shutting down ExecutorService 'applicationTaskExecutor'
+2023-04-27 16:39:09.220  INFO 57913 --- [SpringContextShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2023-04-27 16:39:09.225  INFO 57913 --- [SpringContextShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2023-04-27 16:39:12.938  INFO 58154 --- [main] c.y.education.DetectionApplication       : Starting DetectionApplication on localhost with PID 58154 (/Users/jygyt/gitSpace/education-demo/education/target/classes started by jygyt in /Users/jygyt/gitSpace/education-demo)
+2023-04-27 16:39:12.942  INFO 58154 --- [main] c.y.education.DetectionApplication       : No active profile set, falling back to default profiles: default
+2023-04-27 16:39:14.025  INFO 58154 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFERRED mode.
+2023-04-27 16:39:14.103  INFO 58154 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 68ms. Found 5 JPA repository interfaces.
+2023-04-27 16:39:14.716  INFO 58154 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8081 (http)
+2023-04-27 16:39:14.726  INFO 58154 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2023-04-27 16:39:14.726  INFO 58154 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.38]
+2023-04-27 16:39:14.817  INFO 58154 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2023-04-27 16:39:14.817  INFO 58154 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1726 ms
+2023-04-27 16:39:15.026  INFO 58154 --- [main] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2023-04-27 16:39:15.073  INFO 58154 --- [task-1] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2023-04-27 16:39:15.144  INFO 58154 --- [task-1] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 5.4.21.Final
+2023-04-27 16:39:15.392  INFO 58154 --- [task-1] o.hibernate.annotations.common.Version   : HCANN000001: Hibernate Commons Annotations {5.1.0.Final}
+2023-04-27 16:39:15.508  INFO 58154 --- [task-1] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2023-04-27 16:39:16.060  INFO 58154 --- [task-1] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2023-04-27 16:39:16.075  INFO 58154 --- [task-1] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.MySQL5InnoDBDialect
+2023-04-27 16:39:23.738  INFO 58154 --- [task-1] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2023-04-27 16:39:23.749  INFO 58154 --- [task-1] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2023-04-27 16:39:24.393  INFO 58154 --- [main] o.s.b.a.w.s.WelcomePageHandlerMapping    : Adding welcome page: class path resource [static/index.html]
+2023-04-27 16:39:24.991  INFO 58154 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8081 (http) with context path ''
+2023-04-27 16:39:24.992  INFO 58154 --- [main] DeferredRepositoryInitializationListener : Triggering deferred initialization of Spring Data repositories…
+2023-04-27 16:39:25.070  INFO 58154 --- [main] DeferredRepositoryInitializationListener : Spring Data repositories initialized!
+2023-04-27 16:39:25.078  INFO 58154 --- [main] c.y.education.DetectionApplication       : Started DetectionApplication in 13.022 seconds (JVM running for 14.271)
+2023-04-27 16:42:48.470  INFO 58154 --- [SpringContextShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2023-04-27 16:42:48.480  INFO 58154 --- [SpringContextShutdownHook] o.s.s.concurrent.ThreadPoolTaskExecutor  : Shutting down ExecutorService 'applicationTaskExecutor'
+2023-04-27 16:42:48.481  INFO 58154 --- [SpringContextShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2023-04-27 16:42:48.488  INFO 58154 --- [SpringContextShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2023-04-27 16:42:51.617  INFO 58523 --- [main] c.y.education.DetectionApplication       : Starting DetectionApplication on localhost with PID 58523 (/Users/jygyt/gitSpace/education-demo/education/target/classes started by jygyt in /Users/jygyt/gitSpace/education-demo)
+2023-04-27 16:42:51.625  INFO 58523 --- [main] c.y.education.DetectionApplication       : No active profile set, falling back to default profiles: default
+2023-04-27 16:42:52.712  INFO 58523 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFERRED mode.
+2023-04-27 16:42:52.791  INFO 58523 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 69ms. Found 5 JPA repository interfaces.
+2023-04-27 16:42:53.330  INFO 58523 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8081 (http)
+2023-04-27 16:42:53.339  INFO 58523 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2023-04-27 16:42:53.339  INFO 58523 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.38]
+2023-04-27 16:42:53.423  INFO 58523 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2023-04-27 16:42:53.423  INFO 58523 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1688 ms
+2023-04-27 16:42:53.577  INFO 58523 --- [main] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2023-04-27 16:42:53.618  INFO 58523 --- [task-1] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2023-04-27 16:42:53.691  INFO 58523 --- [task-1] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 5.4.21.Final
+2023-04-27 16:42:53.853  INFO 58523 --- [task-1] o.hibernate.annotations.common.Version   : HCANN000001: Hibernate Commons Annotations {5.1.0.Final}
+2023-04-27 16:42:53.930  INFO 58523 --- [task-1] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2023-04-27 16:42:54.339  INFO 58523 --- [task-1] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2023-04-27 16:42:54.351  INFO 58523 --- [task-1] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.MySQL5InnoDBDialect
+2023-04-27 16:42:55.893  INFO 58523 --- [task-1] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2023-04-27 16:42:55.903  INFO 58523 --- [task-1] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2023-04-27 16:42:56.515  INFO 58523 --- [main] o.s.b.a.w.s.WelcomePageHandlerMapping    : Adding welcome page: class path resource [static/index.html]
+2023-04-27 16:42:57.126  INFO 58523 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8081 (http) with context path ''
+2023-04-27 16:42:57.127  INFO 58523 --- [main] DeferredRepositoryInitializationListener : Triggering deferred initialization of Spring Data repositories…
+2023-04-27 16:42:57.206  INFO 58523 --- [main] DeferredRepositoryInitializationListener : Spring Data repositories initialized!
+2023-04-27 16:42:57.214  INFO 58523 --- [main] c.y.education.DetectionApplication       : Started DetectionApplication in 6.358 seconds (JVM running for 7.264)
