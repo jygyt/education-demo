@@ -62,6 +62,15 @@ export class LayoutComponent implements OnInit, AfterViewInit {
       open: false,
       selected: false,
       childList: []
+    },
+    {
+      id: '2',
+      icon: 'account-book',
+      title: '学校管理',
+      router: '/page/school',
+      open: false,
+      selected: false,
+      childList: []
     }
   ];
 

@@ -11,6 +11,8 @@ import {InnerContentComponent} from "./inner-content/inner-content.component";
 import {DelonFormModule} from "@delon/form";
 import {DelonABCModule} from "@delon/abc";
 import {DragDropModule} from "@angular/cdk/drag-drop";
+import {SchoolDetailComponent} from "./school-detail/school-detail.component";
+import {QuillEditorComponent} from "../customComponent/quill-editor/quill-editor.component";
 
 @NgModule({
   declarations: [
@@ -20,6 +22,8 @@ import {DragDropModule} from "@angular/cdk/drag-drop";
     IndexComponent,
     AccountComponent,
     InnerContentComponent,
+    SchoolDetailComponent,
+    QuillEditorComponent
   ],
   exports: [
     SiderMenuComponent

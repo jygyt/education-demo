@@ -7,10 +7,7 @@ import com.yunzainfo.education.dao.table.School;
 import com.yunzainfo.education.entity.result.ResultData;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -38,5 +35,11 @@ public class MessagePhoneController {
     public ResponseEntity save(@RequestBody MessagePhone messagePhone) {
         messagePhoneRepository.saveAndFlush(messagePhone);
         return ResultData.okData("添加成功");
+    }
+
+    @GetMapping("/delete/{id}")
+    public ResponseEntity delete(@PathVariable String id) {
+        messagePhoneRepository.deleteById(id);
+        return ResultData.okData("删除成功");
     }
 }

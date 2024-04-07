@@ -1,0 +1,88 @@
+// 默认内容区
+.default-cont {
+  margin: 24px;
+  padding: 24px 32px;
+  background: #fff;
+  min-height: 400px;
+  overflow: hidden;
+}
+
+// 筛选条件布局
+.yz-screen-box-row {
+  .yz-screen-box-col {
+    .yz-screen-box-col-left {
+      width: 75px;
+      line-height: 32px;
+      text-overflow: ellipsis;
+      overflow: hidden;
+      white-space: nowrap;
+      display: inline-block;
+      text-align: right;
+    }
+
+    .yz-screen-box-col-right {
+      display: inline-block;
+      vertical-align: top;
+      width: calc(100% - 93px);
+    }
+  }
+
+  .yz-screen-box-col.yz-screen-box-col-btn {
+    margin-bottom: 0 !important;
+
+    .yz-screen-box-col-right {
+      width: 100%;
+    }
+
+    button {
+      margin-right: 15px;
+    }
+  }
+}
+
+.yz-function-box {
+  min-height: 32px;
+  margin: 20px 0 16px;
+
+  button {
+    margin-right: 15px;
+    margin-bottom: 8px;
+  }
+
+  .yz-function-btn {
+    float: left;
+  }
+
+  .table-set-btn {
+    float: right;
+    line-height: 32px;
+    overflow: hidden;
+
+    span {
+      display: block;
+      float: left;
+      margin-top: 3px;
+    }
+
+    i {
+      font-size: 23px;
+      color: #595959;
+      margin-left: 14px;
+      cursor: pointer;
+    }
+  }
+}
+
+nz-select {
+  margin-right: 8px;
+  width: 120px;
+}
+
+i[nz-icon] {
+  font-size: 32px;
+  color: #999;
+}
+.ant-upload-text {
+  margin-top: 8px;
+  color: #666;
+}

@@ -15,7 +15,6 @@ import {RouteModule} from "./route/route.module";
 import {TokenInterceptor} from "./core/service/token.interceptor";
 import {PERFECT_SCROLLBAR_CONFIG, PerfectScrollbarConfigInterface, PerfectScrollbarModule} from "ngx-perfect-scrollbar";
 import {NgxEchartsModule} from "ngx-echarts";
-import {OuiLoadService} from "./core/service/oui-load.service";
 import {DragDropModule} from "@angular/cdk/drag-drop";
 
 
@@ -23,9 +22,6 @@ registerLocaleData(zh);
 const DEFAULT_PERFECT_SCROLLBAR_CONFIG: PerfectScrollbarConfigInterface = {
   suppressScrollX: true
 };
-// export function get_settings(ouiLoadService: OuiLoadService) {
-//   return () => ouiLoadService.getSettings();
-// }
 
 @NgModule({
   declarations: [
@@ -43,7 +39,8 @@ const DEFAULT_PERFECT_SCROLLBAR_CONFIG: PerfectScrollbarConfigInterface = {
     RouteModule,
     NgxEchartsModule,
     PerfectScrollbarModule,
-    DragDropModule
+    DragDropModule,
+
   ],
   providers: [{ provide: NZ_I18N, useValue: zh_CN },
     {

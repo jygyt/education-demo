@@ -1,0 +1,134 @@
+<div class="default-cont course-pages">
+  <!--筛选-->
+  <div nz-row class="yz-screen-box-row">
+    <div nz-col nzXs="24" nzSm="24" nzMd="24" nzLg="8" nzXl="8" nzXXl="8" class="yz-screen-box-col">
+      <span class="yz-screen-box-col-left" title="类型名称">类型名称：</span>
+      <div class="yz-screen-box-col-right">
+        <input nz-input placeholder="请输入类型名称" [(ngModel)]="typeName">
+      </div>
+    </div>
+
+    <div nz-col nzXs="24" nzSm="24" nzMd="24" nzLg="8" nzXl="8" nzXXl="8"
+         class="yz-screen-box-col yz-screen-box-col-btn">
+      <div class="yz-screen-box-col-right">
+        <button nz-button nzType="primary" [nzLoading]="tableParams.tableLoading" (click)="queryListForPage()">
+          查询
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!--功能-->
+  <div class="yz-function-box">
+    <div class="yz-function-btn">
+      <button nz-button nzType="primary" (click)="addTemplate()">
+        新增
+      </button>
+    </div>
+  </div>
+
+  <!--表格-->
+  <nz-table #nzTable [nzData]="listOfData"
+            [nzScroll]="{x:tableParams.tableScrollWidth}"
+            [nzLoading]="tableParams.tableLoading"
+            [nzShowPagination]="true"
+            [nzPageIndex]="tableParams.pageIndex"
+            [nzPageSize]="tableParams.pageSize"
+            [nzTotal]="tableParams.total"
+            [nzShowSizeChanger]="false"
+            [nzSize]="tableParams.size">
+    <thead>
+    <tr>
+      <th>学校名称</th>
+      <th>轮播图</th>
+      <th>学校简介</th>
+      <th>联系电话</th>
+      <th>显示顺序</th>
+      <th>操作</th>
+    </tr>
+    </thead>
+    <tbody>
+    <ng-template ngFor let-data [ngForOf]="nzTable.data">
+      <tr>
+        <td>{{ data.schoolName }}</td>
+        <td>
+          <img [src]="'data:image/jpeg;base64,'+formatString(data.picBase64)" alt="暂未上传" height="50px"/>
+        </td>
+        <td>{{ data.schoolDescribe }}</td>
+        <td>{{ data.schoolPhone }}</td>
+        <td>{{ data.displayIndex }}</td>
+        <td>
+          <a (click)="update(data)">编辑</a>
+          <nz-divider nzType="vertical"></nz-divider>
+          <a (click)="addTemplate()">查看简介</a>
+          <nz-divider nzType="vertical"></nz-divider>
+          <a nz-popconfirm
+             nzPopconfirmTitle="确定删除此条记录吗"
+             nzPopconfirmPlacement="bottom"
+             (nzOnConfirm)="delete(data.id)">删除</a>
+        </td>
+      </tr>
+    </ng-template>
+    </tbody>
+  </nz-table>
+</div>
+
+<nz-modal [(nzVisible)]="templateModal.isVisible" nzTitle="{{templateModal.title}}" (nzOnCancel)="templateModal.isVisible=!templateModal.isVisible" (nzOnOk)="handleOkTemplate()">
+
+  <nz-form-item>
+    <nz-form-label [nzSm]="6" [nzXs]="24" nzRequired>学校名称</nz-form-label>
+    <nz-form-control [nzSm]="14" [nzXs]="24">
+      <input maxlength="20" nz-input style="width: 300px" [(ngModel)]="templateModal.schoolName">
+    </nz-form-control>
+  </nz-form-item>
+  <nz-form-item>
+    <nz-form-label [nzSm]="6" [nzXs]="24" nzRequired>联系电话</nz-form-label>
+    <nz-form-control [nzSm]="14" [nzXs]="24">
+      <input maxlength="20" nz-input style="width: 300px" [(ngModel)]="templateModal.schoolPhone">
+    </nz-form-control>
+  </nz-form-item>
+  <nz-form-item>
+    <nz-form-label [nzSm]="6" [nzXs]="24" nzRequired>轮播图</nz-form-label>
+    <nz-form-control [nzSm]="14" [nzXs]="24">
+      <div class="clearfix">
+        <nz-upload
+          nzAction=""
+          nzListType="picture-card"
+          [(nzFileList)]="fileList"
+          [nzShowButton]="fileList.length < 1"
+          [nzShowUploadList]="showUploadList"
+          [nzBeforeUpload]="beforeUpload"
+          [nzPreview]="handlePreview"
+        >
+          <i nz-icon nzType="plus"></i>
+          <div class="ant-upload-text">Upload</div>
+        </nz-upload>
+        <nz-modal
+          [nzVisible]="previewVisible"
+          [nzContent]="modalContent"
+          [nzFooter]="null"
+          (nzOnCancel)="previewVisible = false"
+        >
+          <ng-template #modalContent>
+            <img [src]="previewImage" [ngStyle]="{ width: '100%' }" />
+          </ng-template>
+        </nz-modal>
+      </div>
+<!--      <nz-input-number style="width: 300px" [(ngModel)]="templateModal.picBase64" [nzMin]="1"></nz-input-number>-->
+    </nz-form-control>
+  </nz-form-item>
+  <nz-form-item>
+    <nz-form-label [nzSm]="6" [nzXs]="24" nzRequired>学校简介</nz-form-label>
+    <nz-form-control [nzSm]="14" [nzXs]="24">
+      <quillEditor [(ngModel)]="templateModal.schoolDescribe"></quillEditor>
+    </nz-form-control>
+  </nz-form-item>
+
+  <nz-form-item>
+    <nz-form-label [nzSm]="6" [nzXs]="24" nzRequired>显示顺序</nz-form-label>
+    <nz-form-control [nzSm]="14" [nzXs]="24">
+      <nz-input-number style="width: 300px" [(ngModel)]="templateModal.displayIndex" [nzMin]="1"></nz-input-number>
+    </nz-form-control>
+  </nz-form-item>
+</nz-modal>
+

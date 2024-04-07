@@ -87,7 +87,7 @@ public class School {
     /*
     * 学校描述
     * */
-    @Column(name = "school_describe",columnDefinition = "text")
+    @Column(name = "school_describe",columnDefinition = "LONGTEXT")
     private String schoolDescribe;
 
     /*
@@ -130,7 +130,7 @@ public class School {
     @Column(name = "school_recommend",columnDefinition = "text")
     private String schoolRecommend;
 
-    @Column(name = "pic_base64",columnDefinition = "text")
+    @Column(name = "pic_base64",columnDefinition = "LONGTEXT")
     private String picBase64;
 
     @Column(name = "display_index")
