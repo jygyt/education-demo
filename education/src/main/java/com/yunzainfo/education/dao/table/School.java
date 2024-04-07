@@ -129,4 +129,10 @@ public class School {
     * */
     @Column(name = "school_recommend",columnDefinition = "text")
     private String schoolRecommend;
+
+    @Column(name = "pic_base64",columnDefinition = "text")
+    private String picBase64;
+
+    @Column(name = "display_index")
+    private Integer displayIndex;
 }
