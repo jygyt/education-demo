@@ -6,9 +6,9 @@ import {AllService} from "../../core/service/all.service";
   templateUrl: './quill-editor.component.html',
   styleUrls: ['./quill-editor.component.less']
 })
-
 export class QuillEditorComponent implements OnInit {
-  constructor(private allService: AllService) { }
+
+  constructor(private allService:AllService) { }
 
   public editor
   //---------------- 声明一个双向绑定的model   start
@@ -31,7 +31,7 @@ export class QuillEditorComponent implements OnInit {
 
   EditorCreated(quill) {
     const toolbar = quill.getModule('toolbar');
-    toolbar.addHandler('image', this.imageHandler.bind(this));
+    //toolbar.addHandler('image', this.imageHandler.bind(this))
     this.editor = quill;
   }
 
@@ -42,6 +42,8 @@ export class QuillEditorComponent implements OnInit {
     Imageinput.classList.add('ql-image');
     Imageinput.addEventListener('change', () => {
       const file = Imageinput.files[0];
+      this.editor.insertEmbed(file);
+
       if (Imageinput.files != null && Imageinput.files[0] != null) {
         // // 上传到制定位置
         // this.allService.uploadFile(file).subscribe(value => {

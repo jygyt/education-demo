@@ -13,6 +13,7 @@ import {DelonABCModule} from "@delon/abc";
 import {DragDropModule} from "@angular/cdk/drag-drop";
 import {SchoolDetailComponent} from "./school-detail/school-detail.component";
 import {QuillEditorComponent} from "../customComponent/quill-editor/quill-editor.component";
+import {QuillModule} from "ngx-quill";
 
 @NgModule({
   declarations: [
@@ -34,7 +35,8 @@ import {QuillEditorComponent} from "../customComponent/quill-editor/quill-editor
     DashboardLayoutModule,
     DelonFormModule.forRoot(),
     DelonABCModule,
-    DragDropModule
+    DragDropModule,
+    QuillModule.forRoot()
   ],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })

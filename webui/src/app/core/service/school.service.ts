@@ -20,12 +20,22 @@ export class SchoolService {
     );
   }
 
-  addSchool(schoolName,
+  deleteById(id) {
+    return this.http.get(`/device-manage/api/manage/school/delete/${id}`, YunzaiHeaders.APPLICATION_JSON).pipe(
+      map((response: any) => {
+        return response ? response : null;
+      })
+    );
+  }
+
+  addSchool(id,
+            schoolName,
             schoolPhone,
             displayIndex,
             schoolDescribe,
             picBase64) {
     return this.http.post(`/device-manage/api/manage/school/save`, {
+      id,
       schoolName,
       schoolPhone,
       displayIndex,

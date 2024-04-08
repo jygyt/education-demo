@@ -1242,3 +1242,119 @@ Caused by: com.mysql.cj.jdbc.exceptions.MysqlDataTruncation: Data truncation: Da
 	at org.hibernate.engine.jdbc.internal.ResultSetReturnImpl.executeUpdate(ResultSetReturnImpl.java:197) ~[hibernate-core-5.4.21.Final.jar:5.4.21.Final]
 	... 103 common frames omitted
 
+2024-04-08 08:39:54.175  WARN 25024 --- [HikariPool-1 housekeeper] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=54m21s762ms967µs600ns).
+2024-04-08 08:39:57.491  WARN 17852 --- [HikariPool-1 housekeeper] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=54m21s664ms199µs200ns).
+2024-04-08 13:37:39.824  WARN 17852 --- [HikariPool-1 housekeeper] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=1h37m9s71ms543µs300ns).
+2024-04-08 13:38:06.385  WARN 25024 --- [HikariPool-1 housekeeper] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=1h37m8s992ms577µs100ns).
+2024-04-08 20:34:27.089  WARN 25024 --- [HikariPool-1 housekeeper] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=1h56m13s174ms886µs600ns).
+2024-04-08 20:34:30.235  WARN 17852 --- [HikariPool-1 housekeeper] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=1h56m13s174ms564µs100ns).
+2024-04-08 20:38:54.523  INFO 21056 --- [main] c.y.education.DetectionApplication       : Starting DetectionApplication on LAPTOP-95MS1IFM with PID 21056 (D:\桌面\education-demo\education\target\classes started by 我的电脑 in D:\桌面\education-demo)
+2024-04-08 20:38:54.526  INFO 21056 --- [main] c.y.education.DetectionApplication       : No active profile set, falling back to default profiles: default
+2024-04-08 20:38:55.075  INFO 21056 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFERRED mode.
+2024-04-08 20:38:55.130  INFO 21056 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 49ms. Found 6 JPA repository interfaces.
+2024-04-08 20:38:55.613  INFO 21056 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8082 (http)
+2024-04-08 20:38:55.626  INFO 21056 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2024-04-08 20:38:55.626  INFO 21056 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.38]
+2024-04-08 20:38:55.753  INFO 21056 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2024-04-08 20:38:55.754  INFO 21056 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1193 ms
+2024-04-08 20:38:55.895  INFO 21056 --- [main] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2024-04-08 20:38:55.937  INFO 21056 --- [task-1] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2024-04-08 20:38:55.981  INFO 21056 --- [task-1] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 5.4.21.Final
+2024-04-08 20:38:56.076  INFO 21056 --- [task-1] o.hibernate.annotations.common.Version   : HCANN000001: Hibernate Commons Annotations {5.1.0.Final}
+2024-04-08 20:38:56.147  INFO 21056 --- [task-1] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2024-04-08 20:38:56.491  INFO 21056 --- [task-1] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2024-04-08 20:38:56.502  INFO 21056 --- [task-1] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.MySQL5InnoDBDialect
+2024-04-08 20:38:57.005  INFO 21056 --- [task-1] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2024-04-08 20:38:57.009  INFO 21056 --- [task-1] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2024-04-08 20:38:57.410  INFO 21056 --- [main] o.s.b.a.w.s.WelcomePageHandlerMapping    : Adding welcome page: class path resource [static/index.html]
+2024-04-08 20:38:57.702  WARN 21056 --- [main] ConfigServletWebServerApplicationContext : Exception encountered during context initialization - cancelling refresh attempt: org.springframework.context.ApplicationContextException: Failed to start bean 'webServerStartStop'; nested exception is org.springframework.boot.web.server.PortInUseException: Port 8082 is already in use
+2024-04-08 20:38:57.703  INFO 21056 --- [main] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2024-04-08 20:38:57.704  INFO 21056 --- [main] o.s.s.concurrent.ThreadPoolTaskExecutor  : Shutting down ExecutorService 'applicationTaskExecutor'
+2024-04-08 20:38:57.705  INFO 21056 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2024-04-08 20:38:57.709  INFO 21056 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2024-04-08 20:38:57.710  INFO 21056 --- [main] o.apache.catalina.core.StandardService   : Stopping service [Tomcat]
+2024-04-08 20:38:57.718  INFO 21056 --- [main] ConditionEvaluationReportLoggingListener : 
+
+Error starting ApplicationContext. To display the conditions report re-run your application with 'debug' enabled.
+2024-04-08 20:38:57.721 ERROR 21056 --- [main] o.s.b.d.LoggingFailureAnalysisReporter   : 
+
+***************************
+APPLICATION FAILED TO START
+***************************
+
+Description:
+
+Web server failed to start. Port 8082 was already in use.
+
+Action:
+
+Identify and stop the process that's listening on port 8082 or configure this application to listen on another port.
+
+2024-04-08 20:39:15.628  INFO 5280 --- [main] c.y.education.DetectionApplication       : Starting DetectionApplication on LAPTOP-95MS1IFM with PID 5280 (D:\桌面\education-demo\education\target\classes started by 我的电脑 in D:\桌面\education-demo)
+2024-04-08 20:39:15.631  INFO 5280 --- [main] c.y.education.DetectionApplication       : No active profile set, falling back to default profiles: default
+2024-04-08 20:39:16.190  INFO 5280 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFERRED mode.
+2024-04-08 20:39:16.245  INFO 5280 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 50ms. Found 6 JPA repository interfaces.
+2024-04-08 20:39:16.613  INFO 5280 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8081 (http)
+2024-04-08 20:39:16.621  INFO 5280 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2024-04-08 20:39:16.621  INFO 5280 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.38]
+2024-04-08 20:39:16.725  INFO 5280 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2024-04-08 20:39:16.726  INFO 5280 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1048 ms
+2024-04-08 20:39:16.813  INFO 5280 --- [main] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2024-04-08 20:39:16.843  INFO 5280 --- [task-1] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2024-04-08 20:39:16.878  INFO 5280 --- [task-1] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 5.4.21.Final
+2024-04-08 20:39:16.939  INFO 5280 --- [task-1] o.hibernate.annotations.common.Version   : HCANN000001: Hibernate Commons Annotations {5.1.0.Final}
+2024-04-08 20:39:16.990  INFO 5280 --- [task-1] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2024-04-08 20:39:17.288  INFO 5280 --- [task-1] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2024-04-08 20:39:17.296  INFO 5280 --- [task-1] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.MySQL5InnoDBDialect
+2024-04-08 20:39:17.925  INFO 5280 --- [task-1] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2024-04-08 20:39:17.930  INFO 5280 --- [task-1] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2024-04-08 20:39:18.287  INFO 5280 --- [main] o.s.b.a.w.s.WelcomePageHandlerMapping    : Adding welcome page: class path resource [static/index.html]
+2024-04-08 20:39:18.533  WARN 5280 --- [main] ConfigServletWebServerApplicationContext : Exception encountered during context initialization - cancelling refresh attempt: org.springframework.context.ApplicationContextException: Failed to start bean 'webServerStartStop'; nested exception is org.springframework.boot.web.server.PortInUseException: Port 8081 is already in use
+2024-04-08 20:39:18.534  INFO 5280 --- [main] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2024-04-08 20:39:18.536  INFO 5280 --- [main] o.s.s.concurrent.ThreadPoolTaskExecutor  : Shutting down ExecutorService 'applicationTaskExecutor'
+2024-04-08 20:39:18.536  INFO 5280 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2024-04-08 20:39:18.540  INFO 5280 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2024-04-08 20:39:18.542  INFO 5280 --- [main] o.apache.catalina.core.StandardService   : Stopping service [Tomcat]
+2024-04-08 20:39:18.549  INFO 5280 --- [main] ConditionEvaluationReportLoggingListener : 
+
+Error starting ApplicationContext. To display the conditions report re-run your application with 'debug' enabled.
+2024-04-08 20:39:18.571 ERROR 5280 --- [main] o.s.b.d.LoggingFailureAnalysisReporter   : 
+
+***************************
+APPLICATION FAILED TO START
+***************************
+
+Description:
+
+Web server failed to start. Port 8081 was already in use.
+
+Action:
+
+Identify and stop the process that's listening on port 8081 or configure this application to listen on another port.
+
+2024-04-08 20:39:27.959  INFO 16064 --- [main] c.y.education.DetectionApplication       : Starting DetectionApplication on LAPTOP-95MS1IFM with PID 16064 (D:\桌面\education-demo\education\target\classes started by 我的电脑 in D:\桌面\education-demo)
+2024-04-08 20:39:27.962  INFO 16064 --- [main] c.y.education.DetectionApplication       : No active profile set, falling back to default profiles: default
+2024-04-08 20:39:28.498  INFO 16064 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFERRED mode.
+2024-04-08 20:39:28.547  INFO 16064 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 44ms. Found 6 JPA repository interfaces.
+2024-04-08 20:39:28.897  INFO 16064 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2024-04-08 20:39:28.902  INFO 16064 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2024-04-08 20:39:28.902  INFO 16064 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.38]
+2024-04-08 20:39:28.998  INFO 16064 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2024-04-08 20:39:28.998  INFO 16064 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 994 ms
+2024-04-08 20:39:29.083  INFO 16064 --- [main] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2024-04-08 20:39:29.108  INFO 16064 --- [task-1] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2024-04-08 20:39:29.139  INFO 16064 --- [task-1] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 5.4.21.Final
+2024-04-08 20:39:29.200  INFO 16064 --- [task-1] o.hibernate.annotations.common.Version   : HCANN000001: Hibernate Commons Annotations {5.1.0.Final}
+2024-04-08 20:39:29.250  INFO 16064 --- [task-1] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2024-04-08 20:39:29.550  INFO 16064 --- [task-1] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2024-04-08 20:39:29.559  INFO 16064 --- [task-1] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.MySQL5InnoDBDialect
+2024-04-08 20:39:30.021  INFO 16064 --- [task-1] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2024-04-08 20:39:30.026  INFO 16064 --- [task-1] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2024-04-08 20:39:30.429  INFO 16064 --- [main] o.s.b.a.w.s.WelcomePageHandlerMapping    : Adding welcome page: class path resource [static/index.html]
+2024-04-08 20:39:30.847  INFO 16064 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
+2024-04-08 20:39:30.849  INFO 16064 --- [main] DeferredRepositoryInitializationListener : Triggering deferred initialization of Spring Data repositories…
+2024-04-08 20:39:30.951  INFO 16064 --- [main] DeferredRepositoryInitializationListener : Spring Data repositories initialized!
+2024-04-08 20:39:31.001  INFO 16064 --- [main] c.y.education.DetectionApplication       : Started DetectionApplication in 3.443 seconds (JVM running for 4.469)
+2024-04-08 20:40:25.386  INFO 16064 --- [http-nio-8080-exec-2] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2024-04-08 20:40:25.386  INFO 16064 --- [http-nio-8080-exec-2] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2024-04-08 20:40:25.392  INFO 16064 --- [http-nio-8080-exec-2] o.s.web.servlet.DispatcherServlet        : Completed initialization in 6 ms

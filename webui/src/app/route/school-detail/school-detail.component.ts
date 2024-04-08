@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import {NzMessageService, UploadFile} from "ng-zorro-antd";
 import {SchoolService} from "../../core/service/school.service";
 import {Observable, Observer} from "rxjs";
+import {DomSanitizer} from "@angular/platform-browser";
 
 @Component({
   selector: 'app-school-detail',
@@ -24,7 +25,7 @@ export class SchoolDetailComponent implements OnInit {
   templateModal = {
     id: null,
     isVisible : false,
-    title: null,
+    title: '',
     isLoading: false,
     schoolName: null,
     schoolPhone: null,
@@ -32,6 +33,12 @@ export class SchoolDetailComponent implements OnInit {
     schoolDescribe: null,
     displayIndex: 1
   }
+
+  noticeContentModal={
+    isVisible: false,
+    noticeContent:''
+  }
+  schoolDescribe = ''
 
   showUploadList = {
     showPreviewIcon: true,
@@ -41,7 +48,7 @@ export class SchoolDetailComponent implements OnInit {
   fileList = [];
   previewImage: string | undefined = '';
   previewVisible = false;
-  constructor(private service: SchoolService, private messageService: NzMessageService) {
+  constructor(private service: SchoolService, private messageService: NzMessageService,private sanitizer: DomSanitizer) {
   }
 
   ngOnInit() {
@@ -52,6 +59,10 @@ export class SchoolDetailComponent implements OnInit {
     this.service.queryListSchool().subscribe((res: any) => {
       this.listOfData = res.data
       this.tableParams.total = res.data.size;
+
+      this.listOfData.forEach(x=>{
+        x['showContent'] = this.sanitizer.bypassSecurityTrustHtml(x.noticeContent);
+      })
     }, (errMsg) => {
 
     });
@@ -98,8 +109,25 @@ export class SchoolDetailComponent implements OnInit {
     reader.readAsDataURL(img);
   }
 
-  update(data){
-
+  update(data) {
+    this.templateModal = {
+      id: data.id,
+      isVisible : false,
+      title: '编辑界面',
+      isLoading: false,
+      schoolName: data.schoolName,
+      schoolPhone: data.schoolPhone,
+      picBase64: data.picBase64,
+      schoolDescribe: data.schoolDescribe,
+      displayIndex: data.displayIndex
+    };
+    this.fileList = [{
+      uid: -1,
+      name: '',
+      status: 'done',
+      thumbUrl: 'data:image/jpeg;base64,' + this.formatString(data.picBase64)
+    }];
+    this.templateModal.isVisible = true;
   }
 
   handleOk() {
@@ -107,23 +135,16 @@ export class SchoolDetailComponent implements OnInit {
   }
 
   delete(id){
-
-  }
-
-  pageChangeSize() {
-    this.queryListForPage();
-  }
-
-  pageChange(event: number) {
-    this.tableParams.pageIndex = event;
-    this.queryListForPage();
+    this.service.deleteById(id).subscribe((val)=>{
+      this.queryListForPage()
+    })
   }
 
   addTemplate() {
     this.templateModal = {
       id: null,
       isVisible : false,
-      title: null,
+      title: '新增界面',
       isLoading: false,
       schoolName: null,
       schoolPhone: null,
@@ -131,6 +152,7 @@ export class SchoolDetailComponent implements OnInit {
       schoolDescribe: null,
       displayIndex: 1
     };
+    this.fileList = []
     this.templateModal.isVisible = true;
   }
 
@@ -141,9 +163,14 @@ export class SchoolDetailComponent implements OnInit {
   }
 
   handleOkTemplate() {
-    this.service.addSchool(this.templateModal.schoolName,this.templateModal.schoolPhone,this.templateModal.displayIndex,this.templateModal.schoolDescribe,this.templateModal.picBase64).subscribe((val) => {
+    this.service.addSchool(this.templateModal.id,this.templateModal.schoolName,this.templateModal.schoolPhone,this.templateModal.displayIndex,this.templateModal.schoolDescribe,this.templateModal.picBase64).subscribe((val) => {
       this.templateModal.isVisible = false;
       this.queryListForPage()
     })
+  }
+
+  opendNoticeContent(noticeContent: any) {
+    this.noticeContentModal.isVisible = true;
+    this.noticeContentModal.noticeContent = noticeContent;
   }
 }

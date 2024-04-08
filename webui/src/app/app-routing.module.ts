@@ -16,7 +16,6 @@ const routes: Routes = [
 
       {path: 'account', component: AccountComponent, data: {breadcrumb: '账号管理'}},
       {path: 'school', component: SchoolDetailComponent, data: {breadcrumb: '学校管理'}},
-
     ]
   },
   {path: '**', redirectTo: 'page'}];

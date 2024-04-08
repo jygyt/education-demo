@@ -17,7 +17,6 @@ import {PERFECT_SCROLLBAR_CONFIG, PerfectScrollbarConfigInterface, PerfectScroll
 import {NgxEchartsModule} from "ngx-echarts";
 import {DragDropModule} from "@angular/cdk/drag-drop";
 
-
 registerLocaleData(zh);
 const DEFAULT_PERFECT_SCROLLBAR_CONFIG: PerfectScrollbarConfigInterface = {
   suppressScrollX: true
@@ -25,7 +24,7 @@ const DEFAULT_PERFECT_SCROLLBAR_CONFIG: PerfectScrollbarConfigInterface = {
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
   ],
   imports: [
     BrowserModule,
@@ -39,7 +38,7 @@ const DEFAULT_PERFECT_SCROLLBAR_CONFIG: PerfectScrollbarConfigInterface = {
     RouteModule,
     NgxEchartsModule,
     PerfectScrollbarModule,
-    DragDropModule,
+    DragDropModule
 
   ],
   providers: [{ provide: NZ_I18N, useValue: zh_CN },

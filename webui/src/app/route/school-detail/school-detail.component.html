@@ -54,13 +54,11 @@
         <td>
           <img [src]="'data:image/jpeg;base64,'+formatString(data.picBase64)" alt="暂未上传" height="50px"/>
         </td>
-        <td>{{ data.schoolDescribe }}</td>
+        <td nzAlign="center"><a (click)="opendNoticeContent(data.schoolDescribe)">简介内容</a></td>
         <td>{{ data.schoolPhone }}</td>
         <td>{{ data.displayIndex }}</td>
         <td>
           <a (click)="update(data)">编辑</a>
-          <nz-divider nzType="vertical"></nz-divider>
-          <a (click)="addTemplate()">查看简介</a>
           <nz-divider nzType="vertical"></nz-divider>
           <a nz-popconfirm
              nzPopconfirmTitle="确定删除此条记录吗"
@@ -73,7 +71,7 @@
   </nz-table>
 </div>
 
-<nz-modal [(nzVisible)]="templateModal.isVisible" nzTitle="{{templateModal.title}}" (nzOnCancel)="templateModal.isVisible=!templateModal.isVisible" (nzOnOk)="handleOkTemplate()">
+<nz-modal [(nzVisible)]="templateModal.isVisible" nzTitle="{{templateModal.title}}" (nzOnCancel)="templateModal.isVisible=!templateModal.isVisible" (nzOnOk)="handleOkTemplate()" nzWidth="800px">
 
   <nz-form-item>
     <nz-form-label [nzSm]="6" [nzXs]="24" nzRequired>学校名称</nz-form-label>
@@ -118,17 +116,22 @@
     </nz-form-control>
   </nz-form-item>
   <nz-form-item>
-    <nz-form-label [nzSm]="6" [nzXs]="24" nzRequired>学校简介</nz-form-label>
-    <nz-form-control [nzSm]="14" [nzXs]="24">
-      <quillEditor [(ngModel)]="templateModal.schoolDescribe"></quillEditor>
+    <nz-form-label nzRequired nzSpan="6">学校简介</nz-form-label>
+    <nz-form-control nzSpan="16" nzErrorTip="学校简介不能为空！">
+      <quillEditor [(model)]="templateModal.schoolDescribe"></quillEditor>
     </nz-form-control>
   </nz-form-item>
 
   <nz-form-item>
     <nz-form-label [nzSm]="6" [nzXs]="24" nzRequired>显示顺序</nz-form-label>
-    <nz-form-control [nzSm]="14" [nzXs]="24">
+    <nz-form-control [nzSm]="14" [nzXs]="24" >
       <nz-input-number style="width: 300px" [(ngModel)]="templateModal.displayIndex" [nzMin]="1"></nz-input-number>
     </nz-form-control>
   </nz-form-item>
 </nz-modal>
 
+<nz-modal [(nzVisible)]="this.noticeContentModal.isVisible" nzTitle="展示内容" [nzFooter]="null" (nzOnCancel)="this.noticeContentModal.isVisible = !this.noticeContentModal.isVisible" (nzOnOk)="this.noticeContentModal.isVisible = !this.noticeContentModal.isVisible">
+  <div>
+    <div class="ql-editor" [innerHTML]="this.noticeContentModal.noticeContent"></div>
+  </div>
+</nz-modal>
