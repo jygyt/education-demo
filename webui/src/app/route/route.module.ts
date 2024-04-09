@@ -14,6 +14,7 @@ import {DragDropModule} from "@angular/cdk/drag-drop";
 import {SchoolDetailComponent} from "./school-detail/school-detail.component";
 import {QuillEditorComponent} from "../customComponent/quill-editor/quill-editor.component";
 import {QuillModule} from "ngx-quill";
+import {MessageComponent} from "./message/message.component";
 
 @NgModule({
   declarations: [
@@ -24,6 +25,7 @@ import {QuillModule} from "ngx-quill";
     AccountComponent,
     InnerContentComponent,
     SchoolDetailComponent,
+    MessageComponent,
     QuillEditorComponent
   ],
   exports: [

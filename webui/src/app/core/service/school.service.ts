@@ -20,6 +20,21 @@ export class SchoolService {
     );
   }
 
+  queryListMeaages() {
+    return this.http.get(`/device-manage/api/manage/message/findAll`, YunzaiHeaders.APPLICATION_JSON).pipe(
+      map((response: any) => {
+        return response ? response : null;
+      })
+    );
+  }
+
+  deleteMessageById(id) {
+    return this.http.get(`/device-manage/api/manage/message/delete/${id}`, YunzaiHeaders.APPLICATION_JSON).pipe(
+      map((response: any) => {
+        return response ? response : null;
+      })
+    );
+  }
   deleteById(id) {
     return this.http.get(`/device-manage/api/manage/school/delete/${id}`, YunzaiHeaders.APPLICATION_JSON).pipe(
       map((response: any) => {

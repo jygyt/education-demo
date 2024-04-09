@@ -9,6 +9,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.Date;
 import java.util.List;
 
 /**
@@ -33,6 +34,7 @@ public class MessagePhoneController {
 
     @PostMapping("/save")
     public ResponseEntity save(@RequestBody MessagePhone messagePhone) {
+        messagePhone.setGmtModified(new Date());
         messagePhoneRepository.saveAndFlush(messagePhone);
         return ResultData.okData("添加成功");
     }

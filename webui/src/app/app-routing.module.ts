@@ -4,6 +4,7 @@ import {LayoutComponent} from "./route/layout/layout.component";
 import {LoginComponent} from "./route/login/login.component";
 import {AccountComponent} from "./route/account/account.component";
 import {SchoolDetailComponent} from "./route/school-detail/school-detail.component";
+import {MessageComponent} from "./route/message/message.component";
 const routes: Routes = [
   {path: '', redirectTo: 'login', pathMatch: 'full'},
   {path: 'login', component: LoginComponent, data: {breadcrumb: '登录'}},
@@ -16,6 +17,7 @@ const routes: Routes = [
 
       {path: 'account', component: AccountComponent, data: {breadcrumb: '账号管理'}},
       {path: 'school', component: SchoolDetailComponent, data: {breadcrumb: '学校管理'}},
+      {path: 'message', component: MessageComponent, data: {breadcrumb: '留言管理'}},
     ]
   },
   {path: '**', redirectTo: 'page'}];
