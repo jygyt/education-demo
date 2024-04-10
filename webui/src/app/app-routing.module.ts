@@ -5,9 +5,11 @@ import {LoginComponent} from "./route/login/login.component";
 import {AccountComponent} from "./route/account/account.component";
 import {SchoolDetailComponent} from "./route/school-detail/school-detail.component";
 import {MessageComponent} from "./route/message/message.component";
+import {IndexComponent} from "./route/index/index.component";
 const routes: Routes = [
   {path: '', redirectTo: 'login', pathMatch: 'full'},
   {path: 'login', component: LoginComponent, data: {breadcrumb: '登录'}},
+  {path: 'index', component: IndexComponent, data: {breadcrumb: '测试管理'}},
   // {path: 'page', component: LayoutComponent, data: {breadcrumb: '登录'}},
   {
     path: 'page',

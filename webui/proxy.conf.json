@@ -1,6 +1,6 @@
 {
   "/device-manage": {
-    "target": "http://localhost:8083",
+    "target": "http://localhost:8080",
     "secure": false,
     "logLevel": "debug",
     "changeOrigin": true

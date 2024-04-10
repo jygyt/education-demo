@@ -11,7 +11,7 @@
 
     <artifactId>education</artifactId>
     <version>0.0.1</version>
-    <packaging>jar</packaging>
+    <packaging>war</packaging>
 
     <name>education</name>
     <description>Demo project for Spring Boot</description>
@@ -46,10 +46,6 @@
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-web</artifactId>
         </dependency>
-        <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-websocket</artifactId>
-        </dependency>
 
         <dependency>
             <groupId>com.github.pagehelper</groupId>
@@ -57,11 +53,6 @@
             <version>1.3.0</version>
         </dependency>
 
-        <dependency>
-            <groupId>io.socket</groupId>
-            <artifactId>socket.io-server</artifactId>
-            <version>1.0.2</version>
-        </dependency>
 
         <dependency>
             <groupId>com.oracle.ojdbc</groupId>
@@ -89,81 +80,35 @@
             </exclusions>
         </dependency>
         <dependency>
-            <groupId>net.lingala.zip4j</groupId>
-            <artifactId>zip4j</artifactId>
-            <version>1.3.2</version>
-        </dependency>
-        <dependency>
-            <groupId>com.github.junrar</groupId>
-            <artifactId>junrar</artifactId>
-            <version>3.0.0</version>
-        </dependency>
-        <dependency>
-            <groupId>cn.hutool</groupId>
-            <artifactId>hutool-all</artifactId>
-            <version>5.4.4</version>
-        </dependency>
-        <dependency>
             <groupId>com.alibaba</groupId>
             <artifactId>fastjson</artifactId>
             <version>1.2.39</version>
         </dependency>
         <dependency>
-            <groupId>org.apache.poi</groupId>
-            <artifactId>poi</artifactId>
-            <version>3.17</version>
-        </dependency>
-        <dependency>
-            <groupId>org.apache.poi</groupId>
-            <artifactId>poi-ooxml</artifactId>
-            <version>3.17</version>
-        </dependency>
-        <dependency>
             <groupId>org.apache.commons</groupId>
             <artifactId>commons-lang3</artifactId>
-            <version>3.9</version>
-        </dependency>
-        <dependency>
-            <groupId>org.apache.httpcomponents</groupId>
-            <artifactId>httpclient</artifactId>
-            <version>4.5.12</version>
         </dependency>
 
         <dependency>
-            <groupId>com.squareup.okhttp3</groupId>
-            <artifactId>okhttp</artifactId>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-tomcat</artifactId>
+            <!-- scope 各配置简单介绍
+                1.test范围是指测试范围有效,在编译和打包时都不会使用这个依赖
+                2.compile范围是指编译范围内有效,在编译和打包时都会将依赖存储进去
+                3.provided依赖,在编译和测试过程中有效,最后生成的war包时不会加入 例如:
+                    servlet-api,因为servlet-api在tomcat服务器已经存在了,如果再打包会冲突
+                4.runtime在运行时候依赖,在编译时候不依赖
+                5.system表示此依赖来自于外部jar, 而不是maven仓库
+                如果引入依赖未指定，默认依赖范围是compile
+            -->
+            <scope>provided</scope>
         </dependency>
 
-        <dependency>
-            <groupId>com.yunzainfo.iot.plugins</groupId>
-            <artifactId>plugins-core</artifactId>
-            <version>0.0.1-SNAPSHOT</version>
-        </dependency>
-        <dependency>
-            <groupId>com.yunzainfo.iot.plugins</groupId>
-            <artifactId>plugins-api</artifactId>
-            <version>0.0.1-SNAPSHOT</version>
-        </dependency>
-        <dependency>
-            <groupId>commons-configuration</groupId>
-            <artifactId>commons-configuration</artifactId>
-            <version>1.8</version>
-        </dependency>
-        <dependency>
-            <groupId>commons-io</groupId>
-            <artifactId>commons-io</artifactId>
-            <version>2.8.0</version>
-        </dependency>
 
         <dependency>
             <groupId>com.github.wenhao</groupId>
             <artifactId>jpa-spec</artifactId>
             <version>3.1.0</version>
-        </dependency>
-        <dependency>
-            <groupId>commons-net</groupId>
-            <artifactId>commons-net</artifactId>
-            <version>3.6</version>
         </dependency>
         <dependency>
             <groupId>log4j</groupId>
@@ -173,6 +118,7 @@
     </dependencies>
 
     <build>
+        <finalName>${artifactId}</finalName>
         <resources>
             <resource>
                 <directory>src/main/resources</directory>
@@ -181,6 +127,15 @@
         </resources>
 
         <plugins>
+            <plugin>
+                <artifactId>maven-war-plugin</artifactId>
+                <version>2.6</version>
+                <configuration>
+                    <!--如果想在没有web.xml文件的情况下构建WAR，请设置为false。-->
+                    <failOnMissingWebXml>false</failOnMissingWebXml>
+                </configuration>
+            </plugin>
+
             <plugin>
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>
