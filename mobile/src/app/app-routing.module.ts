@@ -1,10 +1,10 @@
 import {NgModule} from '@angular/core';
 import {RouterModule, Routes} from '@angular/router';
-import {LoginComponent} from "./route/login/login.component";
+import {IndexComponent} from "./route/index/index.component";
 
 const routes: Routes = [
-  {path: '', redirectTo: 'login', pathMatch: 'full'},
-  {path: 'login', component: LoginComponent, data: {breadcrumb: '登录'}},
+  {path: '', redirectTo: 'index', pathMatch: 'full'},
+  {path: 'index', component: IndexComponent, data: {breadcrumb: '首页'}},
   ];
 
 @NgModule({

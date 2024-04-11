@@ -1,0 +1,132 @@
+.container{
+  background: #f6f6f6;
+  .header{
+    padding: 10px 0;
+    background: #4b74de;
+    .header-info{
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+
+      .logo{
+        img{
+          width: 50%;
+        }
+      }
+    }
+  }
+  .content{
+    width: 90%;
+    margin: 0 auto;
+  }
+
+  .carousel{
+    height: 150px;
+    width: 100%;
+  }
+
+  ::ng-deep .carousel {
+    height: 150px;
+  }
+
+  .intro{
+    text-align: center;
+    margin-top: 25px;
+    margin-bottom: 25px;
+    h2{
+      color: #dc2424;
+      font-size: 25px;
+      font-family: cursive;
+    }
+    h4{
+      color: gray;
+      font-size: 15px;
+      font-family: cursive;
+      line-height: 35px;
+    }
+
+  }
+
+  .school{
+
+    .item{
+      .item-header{
+        display: flex;
+        align-items: center;
+        margin-bottom: 10px;
+        justify-content: space-between;
+        span{
+          font-size: 16px;
+          margin-left: 5px;
+        }
+
+      }
+      .item-card{
+        margin-top: 10px;
+        background: #fff;
+        padding: 20px 20px;
+        border-radius: 5px;
+        margin-bottom: 20px;
+        .school-intro{
+
+          height: 100px;
+          font-size: 15px;
+          color: gray;
+          p{
+            max-height: 100px;
+            ::ng-deep img{
+              width: 50px !important;
+              height: 50px !important;
+            }
+          }
+        }
+      }
+    }
+
+  }
+
+  ::ng-deep .ant-btn-danger{
+    font-size: 2em;
+    height: auto;
+    padding: 15px 30px
+  }
+
+  .img{
+    text-align: center;
+    img{
+      width: 100%;
+      margin-bottom: 15px;
+      border-radius: 5px
+    }
+  }
+
+  .footer{
+    margin-top: 10px;
+    background: #fff;
+    padding-top: 15px;
+    padding-bottom: 30px;
+
+    .footer-content{
+      width: 90%;
+      margin: 0 auto;
+      h4{
+        font-size: 18px;
+        color: #979494;
+        font-weight: 400;
+        font-family: cursive;
+        margin-bottom: 5px;
+      }
+    }
+  }
+::ng-deep .slider-frame{
+  height: 150px;
+}
+  ::ng-deep .slider-list{
+    height: 150px !important;
+  }
+  ::ng-deep .am-carousel-container{
+    width: 100% !important;
+    height: 150px !important;
+  }
+
+}

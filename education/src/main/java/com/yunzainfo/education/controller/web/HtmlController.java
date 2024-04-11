@@ -15,9 +15,19 @@ import java.util.concurrent.ScheduledThreadPoolExecutor;
 @Controller
 public class HtmlController {
 
-    @GetMapping(path = {"/home", "/index", "/"})
-    public String home() {
-        return "redirect:/index.html";
+//    @GetMapping(path = {"/home", "/index", "/"})
+//    public String home() {
+//        return "redirect:/index.html";
+//    }
+
+    @GetMapping(value = {"/page/pc/"})
+    public String pc() {
+        return "redirect:/pc/index.html";
+    }
+
+    @GetMapping(value = {"/page/mobile/"})
+    public String mobile() {
+        return "redirect:/mobile/index.html";
     }
 
     private ConcurrentHashMap<String, Integer> statusMap = new ConcurrentHashMap<>(1024);

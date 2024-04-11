@@ -21,6 +21,7 @@
     "@angular/router": "~8.2.14",
     "jquery": "^3.4.1",
     "js-base64": "^2.6.4",
+    "ng-zorro-antd": "^17.3.0",
     "ng-zorro-antd-mobile": "^1.0.6",
     "rxjs": "~6.4.0",
     "tslib": "^1.10.0",
