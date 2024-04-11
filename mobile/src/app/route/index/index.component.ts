@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import {SchoolService} from "../../../../../webui/src/app/core/service/school.service";
+import {SchoolService} from "../../core/service/school.service";
 
 @Component({
   selector: 'app-index',
