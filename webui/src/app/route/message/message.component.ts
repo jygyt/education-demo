@@ -147,6 +147,18 @@ export class MessageComponent implements OnInit {
         distance: null // 固定列的距离
       },
       {
+        label: '意向学校',
+        value: 'schoolName',
+        status: true, // 是否显示
+        width: 120,
+        showSort: false,
+        showFilter: false,
+        fixedLeft: false,
+        fixedRight: false,
+        order: 0,
+        distance: null // 固定列的距离
+      },
+      {
         label: '创建时间',
         value: 'gmtCreate',
         status: true, // 是否显示
@@ -683,7 +695,7 @@ export class MessageComponent implements OnInit {
 
 // 删除账号
   confirmDelete(id: string) {
-    this.schoolService.deleteById(id).subscribe((val)=>{
+    this.schoolService.deleteMessageById(id).subscribe((val)=>{
       this.getUserInfo()
     })
   }

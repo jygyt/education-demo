@@ -3555,3 +3555,32 @@ org.springframework.web.bind.MethodArgumentNotValidException: Validation failed 
 2024-04-11 21:56:11.406  INFO 1072 --- [http-nio-80-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
 2024-04-11 21:56:11.407  INFO 1072 --- [http-nio-80-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
 2024-04-11 21:56:11.414  INFO 1072 --- [http-nio-80-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 7 ms
+2024-04-11 22:22:25.353  INFO 1072 --- [SpringContextShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2024-04-11 22:22:25.355  INFO 1072 --- [SpringContextShutdownHook] o.s.s.concurrent.ThreadPoolTaskExecutor  : Shutting down ExecutorService 'applicationTaskExecutor'
+2024-04-11 22:22:25.355  INFO 1072 --- [SpringContextShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2024-04-11 22:22:25.361  INFO 1072 --- [SpringContextShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2024-04-11 22:22:29.752  INFO 25352 --- [main] c.y.education.DetectionApplication       : Starting DetectionApplication on LAPTOP-95MS1IFM with PID 25352 (D:\桌面\education-demo\education\target\classes started by 我的电脑 in D:\桌面\education-demo)
+2024-04-11 22:22:29.756  INFO 25352 --- [main] c.y.education.DetectionApplication       : No active profile set, falling back to default profiles: default
+2024-04-11 22:22:30.836  INFO 25352 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFERRED mode.
+2024-04-11 22:22:30.899  INFO 25352 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 58ms. Found 8 JPA repository interfaces.
+2024-04-11 22:22:31.285  INFO 25352 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 80 (http)
+2024-04-11 22:22:31.292  INFO 25352 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2024-04-11 22:22:31.292  INFO 25352 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.38]
+2024-04-11 22:22:31.393  INFO 25352 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2024-04-11 22:22:31.393  INFO 25352 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1598 ms
+2024-04-11 22:22:31.489  INFO 25352 --- [main] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2024-04-11 22:22:31.515  INFO 25352 --- [task-1] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2024-04-11 22:22:31.549  INFO 25352 --- [task-1] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 5.4.21.Final
+2024-04-11 22:22:31.616  INFO 25352 --- [task-1] o.hibernate.annotations.common.Version   : HCANN000001: Hibernate Commons Annotations {5.1.0.Final}
+2024-04-11 22:22:31.666  INFO 25352 --- [task-1] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2024-04-11 22:22:31.940  INFO 25352 --- [task-1] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2024-04-11 22:22:31.947  INFO 25352 --- [task-1] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.MySQL5InnoDBDialect
+2024-04-11 22:22:32.381  INFO 25352 --- [task-1] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2024-04-11 22:22:32.386  INFO 25352 --- [task-1] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2024-04-11 22:22:32.937  INFO 25352 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 80 (http) with context path ''
+2024-04-11 22:22:32.938  INFO 25352 --- [main] DeferredRepositoryInitializationListener : Triggering deferred initialization of Spring Data repositories…
+2024-04-11 22:22:33.052  INFO 25352 --- [main] DeferredRepositoryInitializationListener : Spring Data repositories initialized!
+2024-04-11 22:22:33.059  INFO 25352 --- [main] c.y.education.DetectionApplication       : Started DetectionApplication in 3.672 seconds (JVM running for 4.535)
+2024-04-11 22:22:37.491  INFO 25352 --- [http-nio-80-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2024-04-11 22:22:37.491  INFO 25352 --- [http-nio-80-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2024-04-11 22:22:37.496  INFO 25352 --- [http-nio-80-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 5 ms

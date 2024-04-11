@@ -25,4 +25,8 @@ public class MessagePhoneEntity {
     private String recommendUserId;
 
     private String recommendUser;
+
+    private String schoolId;
+
+    private String schoolName;
 }

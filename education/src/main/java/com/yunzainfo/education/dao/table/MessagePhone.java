@@ -38,4 +38,7 @@ public class MessagePhone {
 
     @Column(name = "recommend_user_id")
     private String recommendUserId;
+
+    @Column(name = "school_id")
+    private String schoolId;
 }

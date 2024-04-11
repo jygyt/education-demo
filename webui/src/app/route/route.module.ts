@@ -16,11 +16,13 @@ import {QuillEditorComponent} from "../customComponent/quill-editor/quill-editor
 import {QuillModule} from "ngx-quill";
 import {MessageComponent} from "./message/message.component";
 import {RecommendComponent} from "./recommend-user/recommend.component";
+import {SelfTalkComponent} from "./self-talk/self-talk.component";
 
 @NgModule({
   declarations: [
     LoginComponent,
     RecommendComponent,
+    SelfTalkComponent,
     LayoutComponent,
     SiderMenuComponent,
     IndexComponent,

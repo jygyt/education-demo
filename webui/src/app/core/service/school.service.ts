@@ -1,6 +1,5 @@
 import {Injectable} from '@angular/core';
 import {HttpClient} from "@angular/common/http";
-import {Observable} from "rxjs";
 import {YunzaiHeaders} from "../headers/http.header";
 import {map} from "rxjs/operators";
 
@@ -30,6 +29,34 @@ export class SchoolService {
 
   queryListRecommend() {
     return this.http.get(`/device-manage/api/manage/recommend/findAll`, YunzaiHeaders.APPLICATION_JSON).pipe(
+      map((response: any) => {
+        return response ? response : null;
+      })
+    );
+  }
+
+  queryListQuestion() {
+    return this.http.get(`/device-manage/api/manage/self-talk/findAll`, YunzaiHeaders.APPLICATION_JSON).pipe(
+      map((response: any) => {
+        return response ? response : null;
+      })
+    );
+  }
+
+  deleteQuestionId(id) {
+    return this.http.get(`/device-manage/api/manage/self-talk/delete/${id}`, YunzaiHeaders.APPLICATION_JSON).pipe(
+      map((response: any) => {
+        return response ? response : null;
+      })
+    );
+  }
+
+  addQuestion(id, question, answer) {
+    return this.http.post(`/device-manage/api/manage/self-talk/save`, {
+      id,
+      question,
+      answer
+    }, YunzaiHeaders.APPLICATION_JSON).pipe(
       map((response: any) => {
         return response ? response : null;
       })

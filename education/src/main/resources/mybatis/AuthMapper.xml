@@ -47,8 +47,9 @@
     </select>
 
     <select id="findMessagePhone" resultType="com.yunzainfo.education.entity.MessagePhoneEntity">
-        select a.id,a.phone,a.gmt_create gmtCreate,a.real_name realName,a.address,a.recommend_user_id recommendUserId,b.real_name recommendUser from message_phone a
+        select a.id,a.phone,a.gmt_create gmtCreate,a.real_name realName,a.address,a.recommend_user_id recommendUserId,b.real_name recommendUser,a.school_id schoolId,c.school_name schoolName from message_phone a
         left join recommend_user b on a.recommend_user_id = b.id
+        left join school c on a.school_id=c.id
         order by a.gmt_create desc
     </select>
 </mapper>

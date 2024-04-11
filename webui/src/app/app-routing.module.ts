@@ -7,6 +7,7 @@ import {SchoolDetailComponent} from "./route/school-detail/school-detail.compone
 import {MessageComponent} from "./route/message/message.component";
 import {IndexComponent} from "./route/index/index.component";
 import {RecommendComponent} from "./route/recommend-user/recommend.component";
+import {SelfTalkComponent} from "./route/self-talk/self-talk.component";
 const routes: Routes = [
   {path: '', redirectTo: 'index', pathMatch: 'full'},
   {path: 'login', component: LoginComponent, data: {breadcrumb: '登录'}},
@@ -22,6 +23,7 @@ const routes: Routes = [
       {path: 'school', component: SchoolDetailComponent, data: {breadcrumb: '学校管理'}},
       {path: 'message', component: MessageComponent, data: {breadcrumb: '报名管理'}},
       {path: 'recommend', component: RecommendComponent, data: {breadcrumb: '推荐人管理'}},
+      {path: 'self-talk', component: SelfTalkComponent, data: {breadcrumb: '问题解答管理'}},
     ]
   },
   {path: '**', redirectTo: 'page'}];
