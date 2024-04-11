@@ -28,8 +28,24 @@ export class SchoolService {
     );
   }
 
+  queryListRecommend() {
+    return this.http.get(`/device-manage/api/manage/recommend/findAll`, YunzaiHeaders.APPLICATION_JSON).pipe(
+      map((response: any) => {
+        return response ? response : null;
+      })
+    );
+  }
+
   deleteMessageById(id) {
     return this.http.get(`/device-manage/api/manage/message/delete/${id}`, YunzaiHeaders.APPLICATION_JSON).pipe(
+      map((response: any) => {
+        return response ? response : null;
+      })
+    );
+  }
+
+  deleteRecommendById(id) {
+    return this.http.get(`/device-manage/api/manage/recommend/delete/${id}`, YunzaiHeaders.APPLICATION_JSON).pipe(
       map((response: any) => {
         return response ? response : null;
       })
@@ -56,6 +72,18 @@ export class SchoolService {
       displayIndex,
       schoolDescribe,
       picBase64
+    }, YunzaiHeaders.APPLICATION_JSON).pipe(
+      map((response: any) => {
+        return response ? response : null;
+      })
+    );
+  }
+
+  addRecommend(id, realName, phone) {
+    return this.http.post(`/device-manage/api/manage/recommend/save`, {
+      id,
+      realName,
+      phone
     }, YunzaiHeaders.APPLICATION_JSON).pipe(
       map((response: any) => {
         return response ? response : null;

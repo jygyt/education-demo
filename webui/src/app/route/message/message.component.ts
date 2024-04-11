@@ -99,10 +99,10 @@ export class MessageComponent implements OnInit {
     Indeterminate: false,
     data: [
       {
-        label: '留言',
-        value: 'messageContent',
+        label: '姓名',
+        value: 'realName',
         status: true, // 是否显示
-        width: 300,
+        width: 120,
         showSort: false,
         showFilter: false,
         fixedLeft: false,
@@ -113,6 +113,30 @@ export class MessageComponent implements OnInit {
       {
         label: '电话',
         value: 'phone',
+        status: true, // 是否显示
+        width: 120,
+        showSort: false,
+        showFilter: false,
+        fixedLeft: false,
+        fixedRight: false,
+        order: 0,
+        distance: null // 固定列的距离
+      },
+      {
+        label: '家庭住址',
+        value: 'address',
+        status: true, // 是否显示
+        width: 120,
+        showSort: false,
+        showFilter: false,
+        fixedLeft: false,
+        fixedRight: false,
+        order: 0,
+        distance: null // 固定列的距离
+      },
+      {
+        label: '推荐人',
+        value: 'recommendUser',
         status: true, // 是否显示
         width: 120,
         showSort: false,

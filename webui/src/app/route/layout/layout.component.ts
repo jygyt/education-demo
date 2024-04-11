@@ -75,8 +75,17 @@ export class LayoutComponent implements OnInit, AfterViewInit {
     {
       id: '3',
       icon: 'message',
-      title: '留言管理',
+      title: '报名管理',
       router: '/page/message',
+      open: false,
+      selected: false,
+      childList: []
+    },
+    {
+      id: '4',
+      icon: 'user',
+      title: '推荐人管理',
+      router: '/page/recommend',
       open: false,
       selected: false,
       childList: []

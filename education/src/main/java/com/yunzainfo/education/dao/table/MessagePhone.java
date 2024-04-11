@@ -29,4 +29,13 @@ public class MessagePhone {
     private Date gmtCreate;
     @Column(name = "gmt_modified")
     private Date gmtModified;
+
+    @Column(name = "real_name")
+    private String realName;
+
+    @Column(name = "address",columnDefinition = "text")
+    private String address;
+
+    @Column(name = "recommend_user_id")
+    private String recommendUserId;
 }

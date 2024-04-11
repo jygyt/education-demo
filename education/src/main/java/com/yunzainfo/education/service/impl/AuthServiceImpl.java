@@ -1,7 +1,9 @@
 package com.yunzainfo.education.service.impl;
 
+import com.yunzainfo.education.dao.mapper.AuthMapper;
 import com.yunzainfo.education.dao.repository.AuthRepository;
 import com.yunzainfo.education.dao.table.Auth;
+import com.yunzainfo.education.entity.MessagePhoneEntity;
 import com.yunzainfo.education.entity.PageParam;
 import com.yunzainfo.education.entity.auth.AuthEntity;
 import com.yunzainfo.education.entity.auth.AuthParam;
@@ -10,6 +12,7 @@ import com.yunzainfo.education.service.AuthService;
 import com.yunzainfo.education.utils.HttpServletRequestUtils;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.BeanUtils;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.*;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -27,6 +30,9 @@ public class AuthServiceImpl implements AuthService {
 
     @Resource
     private AuthRepository authRepository;
+
+    @Autowired
+    AuthMapper mapper;
 
     /**
      * 分页查询账户
@@ -229,5 +235,10 @@ public class AuthServiceImpl implements AuthService {
             authEntity.setCreatedAuthAccount(optionalAuth.get().getAccount());
         }
         return authEntity;
+    }
+
+    @Override
+    public List<MessagePhoneEntity> findMessagePhone(){
+        return mapper.findMessagePhone();
     }
 }

@@ -1,10 +1,12 @@
 package com.yunzainfo.education.service;
 
+import com.yunzainfo.education.entity.MessagePhoneEntity;
 import com.yunzainfo.education.entity.PageParam;
 import com.yunzainfo.education.entity.auth.AuthEntity;
 import com.yunzainfo.education.entity.auth.AuthParam;
 import org.springframework.stereotype.Component;
 
+import java.util.List;
 import java.util.Map;
 
 /**
@@ -70,4 +72,6 @@ public interface AuthService {
      * @return
      */
     AuthEntity findById(AuthParam param);
+
+    List<MessagePhoneEntity> findMessagePhone();
 }

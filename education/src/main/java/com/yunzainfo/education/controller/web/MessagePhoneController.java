@@ -4,7 +4,10 @@ import com.yunzainfo.education.dao.repository.MessagePhoneRepository;
 import com.yunzainfo.education.dao.repository.SchoolRepository;
 import com.yunzainfo.education.dao.table.MessagePhone;
 import com.yunzainfo.education.dao.table.School;
+import com.yunzainfo.education.entity.MessagePhoneEntity;
 import com.yunzainfo.education.entity.result.ResultData;
+import com.yunzainfo.education.service.AuthService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
@@ -22,13 +25,16 @@ public class MessagePhoneController {
 
     private final MessagePhoneRepository messagePhoneRepository;
 
+    @Autowired
+    AuthService authService;
+
     public MessagePhoneController(MessagePhoneRepository messagePhoneRepository) {
         this.messagePhoneRepository = messagePhoneRepository;
     }
 
     @GetMapping("/findAll")
     public ResponseEntity findAll() {
-        List<MessagePhone> list = messagePhoneRepository.findAllByOrderByGmtCreateDesc();
+        List<MessagePhoneEntity> list = authService.findMessagePhone();
         return ResultData.okData(list);
     }
 

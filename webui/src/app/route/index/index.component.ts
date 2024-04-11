@@ -9,6 +9,7 @@ import {NzMessageService} from "ng-zorro-antd";
 })
 export class IndexComponent implements OnInit {
 listOfData: Array<any> = [];
+  listOfDataSchool: Array<any> = [];
   array = [1, 2, 3, 4];
   detailInfo= null;
   isVisible=false
@@ -35,6 +36,12 @@ listOfData: Array<any> = [];
   queryListForPage() {
     this.service.queryListSchool().subscribe((res: any) => {
       this.listOfData = res.data
+
+      this.listOfData.forEach(x => {
+        if(x.schoolName){
+          this.listOfDataSchool.push(x);
+        }
+      })
 
     }, (errMsg) => {
 
