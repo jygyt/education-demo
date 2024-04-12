@@ -784,8 +784,6 @@ ng-zorro-antd/calendar
 
 ng-zorro-antd/card
 
-ng-zorro-antd/carousel
-
 ng-zorro-antd/cascader
 
 ng-zorro-antd/checkbox

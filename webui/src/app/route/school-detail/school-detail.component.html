@@ -82,7 +82,7 @@
           [nzPreview]="handlePreview"
         >
           <i nz-icon nzType="plus"></i>
-          <div class="ant-upload-text">Upload</div>
+          <div class="ant-upload-text">1200*350</div>
         </nz-upload>
         <nz-modal
           [nzVisible]="previewVisible"
@@ -113,7 +113,7 @@
   </nz-form-item>
 </nz-modal>
 
-<nz-modal [(nzVisible)]="this.noticeContentModal.isVisible" nzTitle="展示内容" [nzFooter]="null" (nzOnCancel)="this.noticeContentModal.isVisible = !this.noticeContentModal.isVisible" (nzOnOk)="this.noticeContentModal.isVisible = !this.noticeContentModal.isVisible">
+<nz-modal nzWidth="1200px" [(nzVisible)]="this.noticeContentModal.isVisible" nzTitle="展示内容" [nzFooter]="null" (nzOnCancel)="this.noticeContentModal.isVisible = !this.noticeContentModal.isVisible" (nzOnOk)="this.noticeContentModal.isVisible = !this.noticeContentModal.isVisible">
   <div>
     <div class="ql-editor" [innerHTML]="this.noticeContentModal.noticeContent"></div>
   </div>

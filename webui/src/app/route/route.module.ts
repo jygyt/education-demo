@@ -17,6 +17,7 @@ import {QuillModule} from "ngx-quill";
 import {MessageComponent} from "./message/message.component";
 import {RecommendComponent} from "./recommend-user/recommend.component";
 import {SelfTalkComponent} from "./self-talk/self-talk.component";
+import {CarouselComponent} from "../customComponent/carousel/carousel.component";
 
 @NgModule({
   declarations: [
@@ -30,7 +31,8 @@ import {SelfTalkComponent} from "./self-talk/self-talk.component";
     InnerContentComponent,
     SchoolDetailComponent,
     MessageComponent,
-    QuillEditorComponent
+    QuillEditorComponent,
+    CarouselComponent
   ],
   exports: [
     SiderMenuComponent

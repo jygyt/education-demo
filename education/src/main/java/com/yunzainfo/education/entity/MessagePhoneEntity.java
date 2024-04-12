@@ -8,7 +8,7 @@ import org.hibernate.annotations.GenericGenerator;
 import javax.persistence.*;
 import java.util.Date;
 
-
+@Data
 public class MessagePhoneEntity {
 
     private String id;
