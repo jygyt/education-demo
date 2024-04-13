@@ -40,7 +40,7 @@ public class MessagePhoneController {
 
     @PostMapping("/save")
     public ResponseEntity save(@RequestBody MessagePhone messagePhone) {
-        messagePhone.setGmtModified(new Date());
+        messagePhone.setGmtCreate(new Date());
         messagePhoneRepository.saveAndFlush(messagePhone);
         return ResultData.okData("添加成功");
     }
