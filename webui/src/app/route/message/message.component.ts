@@ -18,21 +18,10 @@ import {SchoolService} from "../../core/service/school.service";
 })
 export class MessageComponent implements OnInit {
 
-  subscribed: Array<Subscription> = [];
 
-  userData: any = {};
-  userId: string = null;
-  // 职位列表数据[单独定义一个类]
   listOfData: Array<AccountModel> = [];
 
-  accountMOdel: AccountModel = new AccountModel();
-  // 全部职业信息列表的备份
-  oldArrayOfList = [];
-  // 当前职业信息列表的备份
   currentArrayOfList = [];
-
-  // 当前页数据条数
-  num: number;
 
   id: string = '';
   level: number = null;
@@ -200,48 +189,14 @@ export class MessageComponent implements OnInit {
   // 排序方式
   sortType = null;// 'descend' | 'ascend' | null
 
-  // 是否查看详情
-  isViewDetail: boolean = false;
-  count: number = null;
-
-  // 招聘信息操作框
-  InfoEditModal = {
-    IsVisible: false,
-    saveLoading: false
-  };
 
 
-  accountEditForm: FormGroup;
-
-  EditForm: FormGroup;
-
-  resetPwdForm: FormGroup;
 
   constructor(public bigScreenService: BigScreenService,
               private router: Router,
               private service: AllService,
               private schoolService: SchoolService,
-              private titleService: Title,
-              private loginSevice: LoginService,
-              private accountService: AccountService,
-              private fb: FormBuilder,) {
-    this.accountEditForm = this.fb.group({
-      account: [null, [Validators.required]],
-      level: [null, [Validators.required]],
-      password: [null, [Validators.required]],
-      password2: [null, [this.confirmationValidator]]
-    });
-    this.EditForm = this.fb.group({
-      account: [null, [Validators.required]],
-      level: [null, [Validators.required]],
-    });
-
-    this.resetPwdForm = this.fb.group({
-      resetPwd: [null, [Validators.required]],
-      account: [null]
-    })
-
-
+              private titleService: Title) {
   }
 
   ngOnInit() {
@@ -254,7 +209,7 @@ export class MessageComponent implements OnInit {
 
     this.level = 1;
     const _this = this;
-    window.addEventListener("resize", function () {
+    window.addEventListener("resize",  () =>{
       _this.isFullscreen = _this.bigScreenService.isFullscreen();
     });
     this.setTableScrollWidth();
@@ -300,7 +255,7 @@ export class MessageComponent implements OnInit {
 
   // 设置刷新
   setReload() {
-    this.queryListAccount()
+    this.getUserInfo();
   }
 
   // 列设置拖动配置
@@ -485,213 +440,6 @@ export class MessageComponent implements OnInit {
     this.columnOldStr = JSON.stringify(this.columnParams.data);
   }
 
-
-  // 表格分页查询-页码改变的回调
-  PageIndexChange($event) {
-    this.tableParams.pageIndex = $event;
-    this.queryListAccount();
-  }
-
-  //  表格分页查询-每页条数改变的回调
-  PageSizeChange($event) {
-    this.tableParams.pageIndex = 1;
-    this.tableParams.pageSize = $event;
-    this.queryListAccount();
-  }
-
-  // 通过查询按钮查询列表
-  queryListByBtn() {
-    this.tableParams.pageIndex = 1;
-    this.tableParams.pageSize = 20;
-    this.queryListAccount();
-  }
-
-
-  //表格分页查询-删除
-  PageSizeChange1() {
-    this.num = this.tableParams.total - (this.tableParams.pageIndex - 1) * this.tableParams.pageSize;
-    if (this.num === 1 && this.tableParams.total != 1) {
-      this.tableParams.pageIndex = this.tableParams.pageIndex - 1;
-    }
-    this.queryListAccount();
-  }
-
-  //表格分页查询-修改
-  PageSizeChange2() {
-    this.num = this.tableParams.total - (this.tableParams.pageIndex - 1) * this.tableParams.pageSize;
-    this.queryListAccount();
-  }
-
-  // 重置查询条件
-  resetScreenBoxItem() {
-    this.screenBoxItem.account = null;
-    this.screenBoxItem.level = null;
-    this.queryListByBtn();
-  }
-
-  // 列表分页查询
-  queryListAccount() {
-    this.listOfData = [];
-    this.tableParams.tableLoading = true;
-    const $temp = this.accountService.selectAccount(this.screenBoxItem.account,
-      this.screenBoxItem.level,
-      this.tableParams.pageIndex,
-      this.tableParams.pageSize
-    ).subscribe((data: any) => {
-      this.tableParams.tableLoading = false;
-      if (data) {
-        this.listOfData = data.data.list;
-        this.oldArrayOfList = JSON.parse(JSON.stringify(data.data.list));
-        this.currentArrayOfList = JSON.parse(JSON.stringify(data.data.list));
-        this.tableParams.total = data.data.total;
-      }
-      this.subscribed.push($temp);
-    }, () => {
-      this.tableParams.tableLoading = false;
-    });
-  }
-
-
-  // 确认密码
-  confirmationValidator = (control: FormControl): { [s: string]: boolean } => {
-    if (!control.value) {
-      return {required: true};
-    } else if (control.value != this.accountEditForm.value.password) {
-      return {confirm: true, error: true};
-    }
-    return {};
-  }
-
-  // 验证密码
-  updateConfirmValidator(): void {
-    Promise.resolve().then(() => this.accountEditForm.controls.password2.updateValueAndValidity());
-    this.accountEditForm.updateValueAndValidity();
-    this.accountEditForm.enable();
-  }
-
-
-  // 打开编辑操作框
-  openEditModal(title: string, data?: any) {
-    this.type = null;
-    this.AccountEditModal.IsVisible = true;
-    this.AccountEditModal.title = title;
-    this.type = 0;
-    this.id = null;
-    this.accountEditForm.reset();
-    this.accountEditForm.get('level')!.setValue('1');
-  }
-
-  // 保存编辑
-  saveAccountEdit() {
-    for (const key in this.accountEditForm.controls) {
-      this.accountEditForm.controls[key].markAsDirty();
-      this.accountEditForm.controls[key].updateValueAndValidity();
-    }
-    this.level = parseInt(this.accountEditForm.value.level);
-    this.saveAddAccount();
-
-  }
-
-  // 保存添加
-  saveAddAccount() {
-    this.AccountEditModal.saveLoading = true;
-    const $temp = this.accountService.addAccount(
-      this.accountEditForm.value.account,
-      this.accountEditForm.value.password,
-      this.type,
-      this.level,
-      this.userData.id).subscribe((data: any) => {
-      this.AccountEditModal.saveLoading = false;
-      if (data.message.indexOf('成功') != -1) {
-        this.AccountEditModal.IsVisible = false;
-        this.service.createMessage('success', '操作成功！');
-        this.PageSizeChange2();
-      } else {
-        this.service.createMessage('error', data.message);
-      }
-      this.subscribed.push($temp);
-
-    }, (err_msg) => {
-      this.AccountEditModal.saveLoading = false;
-      this.service.errorMsg(err_msg);
-    });
-  }
-
-
-  EditAccount(data: any) {
-    this.EditModal.title = '编辑' + data.account + '账号';
-    this.EditModal.IsVisible = true;
-    this.type = 1;
-    this.id = data.id
-    this.accountMOdel = null;
-    this.accountMOdel = data;
-    this.EditForm.get('account')!.setValue(data.account);
-    this.EditForm.get('level')!.setValue(data.level.toString());
-  }
-
-// 保存信息编辑
-  editAccount() {
-    for (const key in this.EditForm.controls) {
-      this.EditForm.controls[key].markAsDirty();
-      this.EditForm.controls[key].updateValueAndValidity();
-    }
-    this.level = parseInt(this.EditForm.value.level);
-
-    this.EditModal.saveLoading = true;
-    const $temp = this.accountService.editAccount(
-      this.id,
-      this.EditForm.value.account,
-      this.accountMOdel.password,
-      this.type,
-      this.level,
-      this.userData.id).subscribe((data: any) => {
-      this.EditModal.saveLoading = false;
-      if (data.message.indexOf('成功') != -1) {
-        this.EditModal.IsVisible = false;
-        this.service.createMessage('success', '操作成功！');
-        this.PageSizeChange2();
-      } else {
-        this.service.createMessage('error', '操作失败！');
-      }
-      this.subscribed.push($temp);
-    }, (err_msg) => {
-      this.EditModal.saveLoading = false;
-      this.service.errorMsg(err_msg);
-    });
-  }
-
-// 打开密码操作框
-  openResetPwd(account: string) {
-    this.resetPwdModal.title = account;
-    this.resetPwdModal.IsVisible = true;
-    this.resetPwdForm.get('account')!.setValue(account);
-    this.resetPwdForm.get('resetPwd')!.setValue('111111');
-  }
-
-  // 重置密码
-  resetPassword() {
-    for (const key in this.resetPwdForm.controls) {
-      this.resetPwdForm.controls[key].markAsDirty();
-      this.resetPwdForm.controls[key].updateValueAndValidity();
-    }
-    this.resetPwdModal.saveLoading = true;
-    const $temp = this.accountService.resetPwd(this.resetPwdForm.value.account,
-      this.resetPwdForm.value.resetPwd
-    ).subscribe((data: any) => {
-      this.resetPwdModal.saveLoading = false;
-      console.log()
-      if (data.message.indexOf('成功') != -1) {
-        this.resetPwdModal.IsVisible = false;
-        this.service.createMessage("success", "密码重置成功")
-      } else {
-        this.service.createMessage("error", "密码重置失败")
-      }
-      this.subscribed.push($temp);
-    }, (err_msg) => {
-
-    });
-    this.resetPwdModal.saveLoading = false;
-  }
 
 // 删除账号
   confirmDelete(id: string) {

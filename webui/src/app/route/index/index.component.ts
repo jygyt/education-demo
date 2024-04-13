@@ -90,6 +90,7 @@ listOfData: Array<any> = [];
     }
     this.service.addMessage(this.accountEditForm.value.realName,this.accountEditForm.value.phone,this.accountEditForm.value.address,this.accountEditForm.value.recommendUserId,this.accountEditForm.value.schoolId).subscribe((val)=>{
       this.report.isVisible = false
+      this.messageService.create('success', '报名成功');
     })
   }
 
