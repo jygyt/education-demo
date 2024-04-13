@@ -1,26 +1,29 @@
-.container{
+.container {
   background: #f6f6f6;
-  .header{
-    padding: 10px 0;
+
+  .header {
+    height: 40px;
     background: #4b74de;
-    .header-info{
+
+    .header-info {
       display: flex;
       justify-content: space-between;
       align-items: center;
 
-      .logo{
-        img{
+      .logo {
+        img {
           width: 50%;
         }
       }
     }
   }
-  .content{
+
+  .content {
     width: 90%;
     margin: 0 auto;
   }
 
-  .carousel{
+  .carousel {
     height: 150px;
     width: 100%;
   }
@@ -29,16 +32,18 @@
     height: 150px;
   }
 
-  .intro{
+  .intro {
     text-align: center;
     margin-top: 25px;
     margin-bottom: 25px;
-    h2{
+
+    h2 {
       color: #dc2424;
       font-size: 25px;
       font-family: cursive;
     }
-    h4{
+
+    h4 {
       color: gray;
       font-size: 15px;
       font-family: cursive;
@@ -47,86 +52,132 @@
 
   }
 
-  .school{
+  .school {
 
-    .item{
-      .item-header{
+    .item {
+      .item-header {
+        width: 100%;
         display: flex;
         align-items: center;
         margin-bottom: 10px;
         justify-content: space-between;
-        span{
-          font-size: 16px;
-          margin-left: 5px;
+
+        .left {
+          display: flex;
+          align-items: center;
+
+          span {
+            font-size: 16px;
+            margin-left: 10px;
+            overflow: hidden;
+            word-wrap: break-word;
+            text-overflow: ellipsis;
+            display: -webkit-box;
+            -webkit-box-orient: vertical;
+            -webkit-line-clamp: 2;
+            line-height: 25px;
+          }
         }
 
+
+
       }
-      .item-card{
+
+      .item-card {
         margin-top: 10px;
         background: #fff;
         padding: 20px 20px;
         border-radius: 5px;
         margin-bottom: 20px;
-        .school-intro{
 
-          height: 100px;
+        .school-intro {
+
           font-size: 15px;
           color: gray;
-          p{
+          line-height: 30px;
+
+          p {
             max-height: 100px;
-            ::ng-deep img{
+
+            ::ng-deep img {
               width: 50px !important;
               height: 50px !important;
             }
           }
+        }
+
+        .btn {
+          color: #1890ff;
+          display: block;
+          line-height: 30px;
+          font-size: 16px;
+          text-align: center;
+          width: 100%;
+          margin-top: 10px;
         }
       }
     }
 
   }
 
-  ::ng-deep .ant-btn-danger{
+  ::ng-deep .ant-btn-danger {
     font-size: 2em;
     height: auto;
     padding: 15px 30px
   }
 
-  .img{
+  .img {
     text-align: center;
-    img{
+
+    img {
       width: 100%;
       margin-bottom: 15px;
       border-radius: 5px
     }
   }
 
-  .footer{
+  .footer {
     margin-top: 10px;
     background: #fff;
     padding-top: 15px;
     padding-bottom: 30px;
 
-    .footer-content{
-      width: 90%;
-      margin: 0 auto;
-      h4{
-        font-size: 18px;
-        color: #979494;
-        font-weight: 400;
-        font-family: cursive;
-        margin-bottom: 5px;
+    .footer-content {
+      p:nth-child(1){
+        
+     line-height: 30px;
+     color: gray;
       }
     }
   }
-::ng-deep .slider-frame{
-  height: 150px;
-}
-  ::ng-deep .slider-list{
+
+  ::ng-deep .slider-frame {
+    height: 150px;
+  }
+
+  ::ng-deep .slider-list {
     height: 150px !important;
   }
-  ::ng-deep .am-carousel-container{
+
+  ::ng-deep .am-carousel-container {
     width: 100% !important;
     height: 150px !important;
   }
 
+}
+
+
+.fixed-button {
+  position: fixed !important;
+  background: #1890ff;
+  color: #fff;
+  border-radius: 50%;
+  border: none;
+  line-height: 50px;
+  text-align: center;
+  font-size: 12px;
+  top: 200px;
+  right: 20px;
+  width: 50px;
+  height: 50px;
 }

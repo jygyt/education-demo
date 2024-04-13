@@ -1,16 +1,19 @@
-.container{
+.container {
   background: #f6f6f6;
-  .header{
+
+  .header {
 
     padding: 30px 0;
     background: #4b74de;
-    .header-info{
+
+    .header-info {
       display: flex;
       justify-content: space-between;
       align-items: center;
     }
   }
-  .content{
+
+  .content {
     width: 1200px;
     margin: 0 auto;
   }
@@ -22,85 +25,104 @@
     background: #364d79;
     color: #fff;
     overflow: hidden;
-    img{
 
-        width: 100%;
-        height: -webkit-fill-available;
+    img {
+
+      width: 100%;
+      height: -webkit-fill-available;
     }
 
   }
 
-  .intro{
+  .intro {
     text-align: center;
     margin-top: 50px;
     margin-bottom: 50px;
-    h2{
+
+    h2 {
       color: #dc2424;
       font-size: 4em;
     }
-    h4{
+
+    h4 {
       color: gray;
       font-size: 2em;
     }
 
   }
 
-  .school{
+  .school {
     display: flex;
+    flex-wrap: wrap;
     justify-content: space-between;
     margin-top: 100px;
-    .item{
-      width: 48%;
-      .item-header{
+
+    .item {
+      width: 32%;
+
+      .item-header {
         display: flex;
         align-items: center;
-        span{
-          font-size: 2em;
+
+        span {
+          font-size: 1.5em;
           margin-left: 10px;
+          overflow: hidden;
+          word-wrap: break-word;
+          text-overflow: ellipsis;
+          display: -webkit-box;
+          -webkit-box-orient: vertical;
+          -webkit-line-clamp: 2;
         }
 
       }
-.item-card{
-  margin-top: 20px;
-  background: #fff;
-  padding:40px 50px;
-  .school-intro{
-    height: 150px;
-    font-size: 1.5em;
-    p{
-      max-height: 200px;
-     ::ng-deep img{
-        width: 50px !important;
-        height: 50px !important;
+
+      .item-card {
+        margin-top: 20px;
+        background: #fff;
+        padding: 40px 50px;
+
+        .school-intro {
+          font-size: 1.5em;
+          margin-top: 20px;
+
+          p {
+            max-height: 200px;
+
+            ::ng-deep img {
+              width: 50px !important;
+              height: 50px !important;
+            }
+          }
+        }
       }
     }
-  }
-}
-    }
 
   }
 
-  ::ng-deep .ant-btn-danger{
-    font-size: 2em;
+  ::ng-deep .ant-btn-danger {
+    font-size: 1.5em;
     height: auto;
-    padding: 15px 30px
+    padding: 10px 20px;
   }
 
-  .img{
+  .img {
     text-align: center;
     display: flex;
     justify-content: space-between;
-    div{
+
+    div {
       width: 95%;
-      img{
-      margin-top: 80px;
-      width: 100%;
-    }
+
+      img {
+        margin-top: 80px;
+        width: 100%;
+      }
     }
 
   }
 
-  .footer{
+  .footer {
     margin-top: 50px;
     background: #fff;
     padding-top: 50px;
@@ -108,8 +130,8 @@
     display: flex;
     justify-content: space-around;
 
-    .footer-content{
-      h4{
+    .footer-content {
+      h4 {
         font-size: 2em;
         color: #979494;
         font-family: cursive;
@@ -120,6 +142,14 @@
 
 .fixed-button {
   position: fixed;
-  bottom: 500px;
+  bottom: 300px;
   right: 250px;
+  width: 80px;
+  height: 80px;
+}
+
+.ql-editor {
+   ::ng-deep img {
+      width:100% !important;
+    }
 }

@@ -1,6 +1,6 @@
 {
   "/device-manage": {
-    "target": "http://localhost:8081",
+    "target": "http://www.bdjxw.cn",
     "secure": false,
     "logLevel": "debug",
     "changeOrigin": true

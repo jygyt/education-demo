@@ -1,0 +1,10 @@
+<!-- carousel.component.html -->
+<div class="carousel">
+  <div *ngFor="let image of images; let i = index" class="carousel-image" [class.active]="i === currentIndex" (click)="selectImage(i)">
+<!--    <img [src]="image" alt="carousel-image">-->
+    <img [src]="'data:image/jpeg;base64,'+formatString(image.picBase64)" alt="暂未上传" height="100%" width="100%" alt="carousel-image"/>
+  </div>
+  <ul class="carousel-indicators">
+    <li *ngFor="let image of images; let i = index" [class.active]="i === currentIndex" (click)="selectImage(i)"></li>
+  </ul>
+</div>

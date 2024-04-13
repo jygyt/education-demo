@@ -61,4 +61,12 @@ export class SchoolService {
       })
     );
   }
+  queryListQuestion() {
+    return this.http.get(`/device-manage/api/manage/self-talk/findAll`, YunzaiHeaders.APPLICATION_JSON).pipe(
+      map((response: any) => {
+        return response ? response : null;
+      })
+    );
+  }
+
 }

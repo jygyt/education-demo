@@ -12,7 +12,7 @@ import {NgZorroAntdMobileModule} from "ng-zorro-antd-mobile";
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
   ],
   imports: [
     BrowserModule,
