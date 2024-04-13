@@ -10,6 +10,7 @@ import { Base64 } from "js-base64";
 })
 export class IndexComponent implements OnInit {
   listOfData: Array<any> = [];
+  listOfDataSchool: Array<any> = [];
   state = {
     data: [],
     imgHeight: '150px'
@@ -17,7 +18,7 @@ export class IndexComponent implements OnInit {
   inputValue = null
   isVisible = false
   detailInfo = null
-  
+
   listOfQuestion: Array<any> = [];
   constructor(
     private service: SchoolService,
@@ -26,7 +27,7 @@ export class IndexComponent implements OnInit {
 
   ngOnInit() {
     this.queryListForPage();
-    
+
     this.queryQuestion();
   }
   // 显示base64图片, 出错unsafe后-去掉字符串中的空格和换行
@@ -47,7 +48,11 @@ export class IndexComponent implements OnInit {
       this.listOfData = res.data
       res.data.forEach((item) => {
         this.state.data.push(item.picBase64)
+        if(item.schoolName){
+          this.listOfDataSchool.push(item);
+        }
       })
+
       console.log(this.state.data)
 
     }, (errMsg) => {

@@ -69,4 +69,26 @@ export class SchoolService {
     );
   }
 
+  addMessage(realName, phone, address, recommendUserId, schoolId) {
+    return this.http.post(`/device-manage/api/manage/message/save`, {
+      realName,
+      phone,
+      address,
+      recommendUserId,
+      schoolId
+    }, YunzaiHeaders.APPLICATION_JSON).pipe(
+      map((response: any) => {
+        return response ? response : null;
+      })
+    );
+  }
+
+  queryListRecommend() {
+    return this.http.get(`/device-manage/api/manage/recommend/findAll`, YunzaiHeaders.APPLICATION_JSON).pipe(
+      map((response: any) => {
+        return response ? response : null;
+      })
+    );
+  }
+
 }

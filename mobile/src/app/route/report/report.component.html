@@ -1,25 +1,25 @@
 <div>
-    <Navbar [icon]="icon" [leftContent]="'返回'" [rightContent]="rightContent" (onLeftClick)="onLeftClick()">
+    <Navbar [icon]="icon" [leftContent]="'返回'" (onLeftClick)="onLeftClick()">
         报名
     </Navbar>
-    
+
     <ng-template #icon>
         <Icon [type]="'left'"></Icon>
     </ng-template>
     <div class="padding:0 10px">
-        <InputItem [clear]="true" [placeholder]="''" [content]="'姓名'"></InputItem>
-        <InputItem [clear]="true" [placeholder]="''" [content]="'电话'" [type]="'money'"></InputItem>
-        <InputItem [clear]="true" [placeholder]="''" [content]="'家庭住址'"></InputItem>
-        <ListItem Picker [extra]="name3" [arrow]="'horizontal'" [data]="singleArea" [(ngModel)]="value3"
+        <InputItem [clear]="true" [placeholder]="'请填写姓名'" [content]="'姓名'" [(ngModel)]="currentRealName"></InputItem>
+        <InputItem [clear]="true" [placeholder]="'请填写电话'" [content]="'电话'" [type]="'money'" [(ngModel)]="currentPhone"></InputItem>
+        <InputItem [clear]="true" [placeholder]="'请填写家庭住址'" [content]="'家庭住址'" [(ngModel)]="currentAddress"></InputItem>
+        <ListItem Picker [extra]="name3" [arrow]="'horizontal'" [data]="listOfDataSchool" [(ngModel)]="value3"
             (ngModelChange)="onOk3($event)">
             意向学校
         </ListItem>
-        <ListItem Picker [extra]="name3" [arrow]="'horizontal'" [data]="singleArea" [(ngModel)]="value3"
-            (ngModelChange)="onOk3($event)">
+        <ListItem Picker [extra]="name4" [arrow]="'horizontal'" [data]="listOfUser" [(ngModel)]="value4"
+            (ngModelChange)="onOk4($event)">
             推荐人
         </ListItem>
 
 
-        <div Button [type]="'primary'" class="save">primary</div>
+        <div Button [type]="'primary'" class="save" (onClick)="report()">报名</div>
     </div>
 </div>

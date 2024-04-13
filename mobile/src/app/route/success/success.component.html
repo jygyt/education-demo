@@ -1,0 +1,8 @@
+<div class="sub-title">报名成功</div>
+<Result [img]="img2" [title]="'报名成功'" [message]="'所提交内容已成功'">
+  <ng-template #img2>
+    <Icon class="spe" [type]="'check-circle'" [color]="'#1F90E6'"></Icon>
+  </ng-template>
+</Result>
+
+<div Button [type]="'primary'" class="save" (onClick)="report()">返回首页</div>
