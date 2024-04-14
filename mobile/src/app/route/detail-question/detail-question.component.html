@@ -1,0 +1,10 @@
+<div>
+    <Navbar [icon]="icon" [leftContent]="'返回'"  (onLeftClick)="onLeftClick()">
+        学校详情
+    </Navbar>
+
+    <ng-template #icon>
+        <Icon [type]="'left'"></Icon>
+    </ng-template>
+    <div class="ql-editor" [innerHTML]="detail?.answer"></div>
+</div>

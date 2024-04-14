@@ -55,6 +55,18 @@
   .school {
 
     .item {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 15px;
+      border-radius: 8px;
+      background: #ffffff;
+      //border: 2px solid red;
+      border-top:1px solid #F00;
+      padding: 10px 15px;
+      .right1 {
+        width: calc(100% - 150px);
+      }
       .item-header {
         width: 100%;
         display: flex;
@@ -144,7 +156,7 @@
 
     .footer-content {
       p:nth-child(1){
-        
+
      line-height: 30px;
      color: gray;
       }
@@ -169,7 +181,7 @@
 
 .fixed-button {
   position: fixed !important;
-  background: #1890ff;
+  background: red;
   color: #fff;
   border-radius: 50%;
   border: none;
@@ -177,6 +189,21 @@
   text-align: center;
   font-size: 12px;
   top: 200px;
+  right: 20px;
+  width: 50px;
+  height: 50px;
+}
+
+.fixed-button1 {
+  position: fixed !important;
+  background: red;
+  color: #fff;
+  border-radius: 50%;
+  border: none;
+  line-height: 50px;
+  text-align: center;
+  font-size: 12px;
+  top: 260px;
   right: 20px;
   width: 50px;
   height: 50px;

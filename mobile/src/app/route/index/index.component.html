@@ -3,6 +3,11 @@
     (click)="openReport()">点击报名</button> -->
 
     <div Button class="fixed-button"  (onClick)="openReport()">点击报名</div>
+  <div Button class="fixed-button1">
+    <a style="color: cornsilk" [href]="'tel:15533213331'">
+      联系电话
+    </a>
+  </div>
   <div class="header">
   </div>
   <div class="carousel">
@@ -21,26 +26,48 @@
   </div>
 
   <div class="school content">
-    <div class="item" *ngFor="let data of listOfDataSchool">
-
-      <div class="item-card">
-        <div class="item-header">
-          <div class="left">
-            <img [src]="'data:image/jpeg;base64,'+formatString(data.picBase64)" alt="暂未上传" height="40px;"
-              width="40px" />
-
-            <span>{{data.schoolName}}{{data.schoolName}}{{data.schoolName}}</span>
-          </div>
-
-        </div>
-        <p style="color: gray;font-size: 15px;">
-
-          联系电话：
-          <a [href]="'tel:' +data.schoolPhone ">{{data.schoolPhone}}</a>
-
-        </p>
-        <a class="btn" (click)="detail(data)">查看详情</a>
+    <div class="item" *ngFor="let data of listOfDataSchool" (click)="detail(data)">
+      <div class="left1">
+        <img [src]="'data:image/jpeg;base64,'+formatString(data.picBase64)" alt="暂未上传" height="100px;"
+             width="120px" />
       </div>
+      <div class="right1">
+        <p style="overflow: hidden;
+            word-wrap: break-word;
+            text-overflow: ellipsis;
+            display: -webkit-box;
+            -webkit-box-orient: vertical;
+            -webkit-line-clamp: 2;
+            line-height: 25px;">
+          <span>{{data.schoolName}}</span>
+        </p>
+        <p style="margin-top: 5px" *ngIf="data.schoolPhone">
+          联系电话:
+          <a [href]="'tel:' +data.schoolPhone ">{{data.schoolPhone}}</a>
+        </p>
+        <p style="margin-top: 5px">
+          <a style="color: #1890FF" class="btn" (click)="detail(data)">查看详情</a>
+        </p>
+      </div>
+
+<!--      <div class="item-card" style="border-top:1px solid #F00 " (click)="detail(data)">-->
+<!--        <div class="item-header">-->
+<!--          <div class="left">-->
+<!--            <img [src]="'data:image/jpeg;base64,'+formatString(data.picBase64)" alt="暂未上传" height="80px;"-->
+<!--              width="120px" />-->
+
+<!--            <span>{{data.schoolName}}</span>-->
+<!--          </div>-->
+
+<!--        </div>-->
+<!--        <p style="color: gray;font-size: 15px;" *ngIf="data.schoolPhone">-->
+
+<!--          联系电话：-->
+<!--          <a [href]="'tel:' +data.schoolPhone ">{{data.schoolPhone}}</a>-->
+
+<!--        </p>-->
+<!--        <a class="btn" (click)="detail(data)">查看详情</a>-->
+<!--      </div>-->
     </div>
 
   </div>
@@ -53,8 +80,8 @@
   <div class="footer">
     <div class="footer-content content">
       <div *ngFor="let item of listOfQuestion;let i=index" style="margin-bottom: 15px;">
-        <p>问题{{i+1}}：{{item.question}}</p>
-        <div class="ql-editor" [innerHTML]="item.answer"></div>
+        <p><a style="color: #1890FF" class="btn" (click)="detailQuestion(item)">{{item.question}}</a></p>
+<!--        <div class="ql-editor" [innerHTML]="item.answer"></div>-->
       </div>
     </div>
   </div>

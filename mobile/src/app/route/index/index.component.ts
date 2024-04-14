@@ -68,6 +68,14 @@ export class IndexComponent implements OnInit {
 
   }
 
+  detailQuestion(data) {
+    console.log(data)
+
+    const param = Base64.encodeURI(JSON.stringify(data));
+    this.router.navigate([`/detail-question`, param])
+
+  }
+
   openReport() {
     this.router.navigate([`/report`])
   }

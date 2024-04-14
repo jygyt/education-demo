@@ -4,10 +4,12 @@ import { IndexComponent } from "./route/index/index.component";
 import { DetailComponent } from './route/detail/detail.component';
 import { ReportComponent } from './route/report/report.component';
 import {SuccessComponent} from "./route/success/success.component";
+import {DetailQuestionComponent} from "./route/detail-question/detail-question.component";
 const routes: Routes = [
   { path: '', redirectTo: 'index', pathMatch: 'full' },
   { path: 'index', component: IndexComponent, data: { breadcrumb: '首页' } },
   { path: 'detail/:data', component: DetailComponent, data: { breadcrumb: '详情' } },
+  { path: 'detail-question/:data', component: DetailQuestionComponent, data: { breadcrumb: '详情' } },
 
   { path: 'report', component: ReportComponent, data: { breadcrumb: '报名' } },
   { path: 'success', component: SuccessComponent, data: { breadcrumb: '成功' } },

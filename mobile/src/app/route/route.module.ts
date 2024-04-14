@@ -7,6 +7,7 @@ import {NgZorroAntdMobileModule} from "ng-zorro-antd-mobile";
 import {CarouselComponent} from "./carousel/carousel.component";
 import { ReportComponent } from './report/report.component';
 import {SuccessComponent} from "./success/success.component";
+import {DetailQuestionComponent} from "./detail-question/detail-question.component";
 
 @NgModule({
   declarations: [
@@ -14,7 +15,8 @@ import {SuccessComponent} from "./success/success.component";
     DetailComponent,
     CarouselComponent,
     ReportComponent,
-    SuccessComponent
+    SuccessComponent,
+    DetailQuestionComponent
   ],
   exports: [
   ],
