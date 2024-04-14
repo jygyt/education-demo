@@ -54,7 +54,7 @@
     <div class="footer-content content">
       <div *ngFor="let item of listOfQuestion;let i=index" style="margin-bottom: 15px;">
         <p>问题{{i+1}}：{{item.question}}</p>
-        <p>解答{{i+1}}：{{item.answer}}</p>
+        <div class="ql-editor" [innerHTML]="item.answer"></div>
       </div>
     </div>
   </div>

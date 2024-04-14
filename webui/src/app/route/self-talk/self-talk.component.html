@@ -206,6 +206,9 @@
             <ng-container *ngSwitchCase="'gmtCreate'">
               {{ data[item.value] | date:'yyyy-MM-dd HH:mm:ss' }}
             </ng-container>
+            <ng-container *ngSwitchCase="'answer'">
+              <a (click)="opendNoticeContent(data[item.value])">回答内容</a>
+            </ng-container>
             <ng-container *ngSwitchCase="'opt'">
               <a (click)="update(data)">编辑</a>
               <nz-divider nzType="vertical"></nz-divider>
@@ -233,7 +236,8 @@
           (nzOnOk)="saveAccountEdit()"
           [nzOkLoading]="AccountEditModal.saveLoading"
           [nzOkDisabled]="!accountEditForm.valid"
-          nzMaskClosable="false">
+          nzMaskClosable="false"
+          nzWidth="800px">
   <form nz-form [formGroup]="accountEditForm">
     <nz-form-item>
       <nz-form-label nzXs="24" nzSm="7" nzFor="account" nzRequired>问题
@@ -247,9 +251,15 @@
       <nz-form-label nzXs="24" nzSm="7" nzFor="account" nzRequired>答案
       </nz-form-label>
       <nz-form-control nzXs="24" nzSm="17" [nzErrorTip]="'请输入答案!'">
-        <textarea rows="4" nz-input formControlName="answer"></textarea>
+        <quillEditor [(model)]="currentAnswer"></quillEditor>
+<!--        <textarea rows="4" nz-input formControlName="answer"></textarea>-->
       </nz-form-control>
     </nz-form-item>
   </form>
 </nz-modal>
 
+<nz-modal nzWidth="1200px" [(nzVisible)]="this.noticeContentModal.isVisible" nzTitle="展示内容" [nzFooter]="null" (nzOnCancel)="this.noticeContentModal.isVisible = !this.noticeContentModal.isVisible" (nzOnOk)="this.noticeContentModal.isVisible = !this.noticeContentModal.isVisible">
+  <div>
+    <div class="ql-editor" [innerHTML]="this.noticeContentModal.noticeContent"></div>
+  </div>
+</nz-modal>

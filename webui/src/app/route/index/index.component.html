@@ -28,19 +28,31 @@
 
   <div class="school content">
     <div class="item" *ngFor="let data of listOfDataSchool">
-
-      <div class="item-card">
-        <div class="item-header">
-          <img [src]="'data:image/jpeg;base64,'+formatString(data.picBase64)" alt="暂未上传" height="60px;" width="60px" />
-          <span>{{data.schoolName}}</span>
-        </div>
-
-        <p class="school-intro">
-          联系电话：{{data.schoolPhone}}
-        </p>
+      <nz-card class="card" style="width:300px;margin-bottom: 20px" [nzCover]="coverTemplate" [nzActions]="[actionSetting]">
+        <nz-card-meta
+          [nzTitle]="data.schoolName"
+          [nzDescription]="'联系电话:' + data.schoolPhone"
+        ></nz-card-meta>
+      </nz-card>
+      <ng-template #coverTemplate>
+        <img style="height: 150px" alt="example" [src]="'data:image/jpeg;base64,'+formatString(data.picBase64)" />
+      </ng-template>
+      <ng-template #actionSetting>
         <button nz-button nzType="danger" (click)="detail(data)">查看详情</button>
+      </ng-template>
 
-      </div>
+<!--      <div class="item-card">-->
+<!--        <div class="item-header">-->
+<!--          <img [src]="'data:image/jpeg;base64,'+formatString(data.picBase64)" alt="暂未上传" height="60px;" width="60px" />-->
+<!--          <span>{{data.schoolName}}</span>-->
+<!--        </div>-->
+
+<!--        <p class="school-intro">-->
+<!--          联系电话：{{data.schoolPhone}}-->
+<!--        </p>-->
+<!--        <button nz-button nzType="danger" (click)="detail(data)">查看详情</button>-->
+
+<!--      </div>-->
 
     </div>
 
@@ -63,8 +75,10 @@
   <div class="footer">
     <div class="footer-content" style="font-size: 25px">
       <div *ngFor="let item of listOfQuestion;let i=index">
-        <p>问题{{i+1}}：{{item.question}}</p>
-        <p>解答{{i+1}}：{{item.answer}}</p>
+        <p style="color: #dc2424">问题{{i+1}}：{{item.question}}</p>
+        <div>
+          <div class="ql-editor" [innerHTML]="item?.answer"></div>
+        </div>
       </div>
     </div>
   </div>

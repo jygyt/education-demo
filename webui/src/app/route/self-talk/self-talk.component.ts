@@ -20,6 +20,11 @@ export class SelfTalkComponent implements OnInit {
   listOfData: Array<AccountModel> = [];
   currentArrayOfList = [];
 
+  noticeContentModal={
+    isVisible: false,
+    noticeContent:''
+  }
+
   // 表格相关参数
   tableParams = {
     pageSize: 20,
@@ -131,6 +136,8 @@ export class SelfTalkComponent implements OnInit {
   accountEditForm: FormGroup;
 
   currentId = null
+
+  currentAnswer = null
 
   constructor(public bigScreenService: BigScreenService,
               private router: Router,
@@ -402,6 +409,7 @@ export class SelfTalkComponent implements OnInit {
     this.AccountEditModal.title = title;
     this.currentId = null;
     this.accountEditForm.reset();
+    this.currentAnswer = null
   }
 
   update(data){
@@ -409,6 +417,7 @@ export class SelfTalkComponent implements OnInit {
     this.AccountEditModal.title = '编辑';
     this.accountEditForm.get('question')!.setValue(data.question);
     this.accountEditForm.get('answer')!.setValue(data.answer);
+    this.currentAnswer = data.answer
     this.currentId = data.id;
   }
   // 保存编辑
@@ -424,7 +433,7 @@ export class SelfTalkComponent implements OnInit {
   saveAddAccount() {
     this.AccountEditModal.saveLoading = true;
 
-    this.schoolService.addQuestion(this.currentId, this.accountEditForm.value.question, this.accountEditForm.value.answer).subscribe((val)=>{
+    this.schoolService.addQuestion(this.currentId, this.accountEditForm.value.question, this.currentAnswer).subscribe((val)=>{
       this.AccountEditModal.saveLoading = false;
       this.AccountEditModal.IsVisible = false;
       this.getRecommend()
@@ -440,5 +449,10 @@ export class SelfTalkComponent implements OnInit {
       this.tableParams.tableLoading = false;
       this.getRecommend();
     })
+  }
+
+  opendNoticeContent(noticeContent: any) {
+    this.noticeContentModal.isVisible = true;
+    this.noticeContentModal.noticeContent = noticeContent;
   }
 }

@@ -22,7 +22,7 @@ public class SelfTalk {
     @Column(name = "question",columnDefinition = "text")
     private String question;
 
-    @Column(name = "answer",columnDefinition = "text")
+    @Column(name = "answer",columnDefinition = "LONGTEXT")
     private String answer;
 
     @Column(name = "gmt_create")
