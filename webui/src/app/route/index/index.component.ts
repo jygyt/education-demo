@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import {SchoolService} from "../../core/service/school.service";
 import {NzMessageService} from "ng-zorro-antd";
 import {FormBuilder, FormGroup, Validators} from "@angular/forms";
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-index',
@@ -19,12 +20,14 @@ listOfData: Array<any> = [];
   inputValue=null
   accountEditForm: FormGroup;
 
+  openVisiable = false
+
 
   report = {
     isVisible: false,
   }
   constructor(
-    private service: SchoolService, private messageService: NzMessageService,private fb: FormBuilder
+    private service: SchoolService, private messageService: NzMessageService,private fb: FormBuilder,private router: Router,
   ) {
     this.accountEditForm = this.fb.group({
       realName: [null, [Validators.required]],
@@ -36,9 +39,23 @@ listOfData: Array<any> = [];
   }
 
   ngOnInit() {
-    this.queryListForPage();
-    this.queryUser();
-    this.queryQuestion();
+    const agent = navigator.userAgent.toLowerCase()
+    const windows = agent.indexOf("win") > -1 || agent.indexOf("wow") > -1
+    const Linux = String(navigator.platform).indexOf("Linux") > -1
+    const mac = /macintosh|mac x/i.test(agent)
+    const iOS = !!agent.match(/\(i[^;]+;( u;)? cpu.+mac os x/)
+    const android = agent.indexOf('android') > -1 || agent.indexOf('adr') > -1
+
+    console.log(windows)
+    console.log(mac)
+    if(!windows) {
+      window.location.href = 'http://www.bdjxw.cn/mobile/#/index';
+      //this.router.navigate([`http://www/bdjxw.cn/mobile`]);
+    } else {
+      this.queryListForPage();
+      this.queryUser();
+      this.queryQuestion();
+    }
   }
   // 显示base64图片, 出错unsafe后-去掉字符串中的空格和换行
   formatString(value) {
@@ -98,6 +115,10 @@ listOfData: Array<any> = [];
     this.service.queryListQuestion().subscribe((val)=>{
       this.listOfQuestion = val.data
     })
+  }
+
+  openModel(){
+    this.openVisiable = true
   }
 
 }

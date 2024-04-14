@@ -47,19 +47,31 @@
   </div>
 
 
+  <button nz-button nzType="danger" (click)="openModel()">求学问答</button>
+<!--  <div class="footer">-->
+<!--    <div class="footer-content content">-->
+<!--      <div *ngFor="let item of listOfQuestion;let i=index">-->
+<!--        <p>问题{{i+1}}：{{item.question}}</p>-->
+<!--        <p>解答{{i+1}}：{{item.answer}}</p>-->
+<!--      </div>-->
+<!--    </div>-->
+<!--  </div>-->
+</div>
+
+<nz-modal [(nzVisible)]="openVisiable" nzTitle="求学问答" [nzFooter]="null" (nzOnCancel)="openVisiable=!openVisiable"
+          [nzWidth]="1500">
   <div class="footer">
-    <div class="footer-content content">
+    <div class="footer-content" style="font-size: 25px">
       <div *ngFor="let item of listOfQuestion;let i=index">
         <p>问题{{i+1}}：{{item.question}}</p>
         <p>解答{{i+1}}：{{item.answer}}</p>
       </div>
     </div>
   </div>
-</div>
-
+</nz-modal>
 
 <nz-modal [(nzVisible)]="isVisible" nzTitle="学校详情" [nzFooter]="null" (nzOnCancel)="isVisible=!isVisible"
-  [nzWidth]="800">
+  [nzWidth]="1500">
   <div class="item-card">
     <h2 style="font-size: 3em">
       {{detailInfo?.schoolName}}
