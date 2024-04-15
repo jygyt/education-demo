@@ -1,4 +1,5 @@
 .container {
+  width: 100%;
   background: #f6f6f6;
 
   .header {
@@ -38,6 +39,7 @@
     text-align: center;
     margin-top: 50px;
     margin-bottom: 50px;
+    position: relative;
 
     h2 {
       color: #dc2424;
@@ -147,15 +149,37 @@
 }
 
 .fixed-button {
+   position: fixed;
+   bottom: 200px;
+   right: 250px;
+   width: 120px;
+   height: 120px;
+ }
+
+.fixed-button1 {
   position: fixed;
-  bottom: 300px;
+  bottom: 350px;
   right: 250px;
-  width: 80px;
-  height: 80px;
+  width: 120px;
+  height: 120px !important;
+}
+
+.fixed-img {
+  position: fixed;
+  bottom: 500px;
+  right: 250px;
+  width: 120px;
+  height: 120px !important;
 }
 
 .ql-editor {
    ::ng-deep img {
       width:100% !important;
     }
+}
+
+.imgaddress{
+  position: absolute;
+  left: 50px;
+  top: 0;
 }
