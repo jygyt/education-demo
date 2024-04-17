@@ -1,8 +1,10 @@
 package com.yunzainfo.education.controller.web;
 
 import org.apache.commons.lang3.concurrent.BasicThreadFactory;
+import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ResponseStatus;
 
 import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.ScheduledExecutorService;
@@ -16,6 +18,7 @@ import java.util.concurrent.ScheduledThreadPoolExecutor;
 public class HtmlController {
 
     @GetMapping(path = {"/pc","/"})
+    @ResponseStatus(HttpStatus.OK)
     public String home() {
         return "redirect:/pc/index.html";
     }

@@ -61,30 +61,37 @@
     </div>
 
     <img class="fixed-img" src="assets/img/qrcode.jpg">
-    <button nzShape="circle" class="fixed-button1" nz-button nzType="danger" nzSize="large"
-            (click)="openModel()">求学问答</button>
+    <nz-anchor>
+
+          <nz-link nzHref="#footer" nzTitle="求学问答 ">     </nz-link>
+    </nz-anchor>
+
   </div>
 
 <!--  <button nz-button nzType="danger" (click)="openModel()">求学问答</button>-->
-<!--  <div class="footer">-->
-<!--    <div class="footer-content content">-->
-<!--      <div *ngFor="let item of listOfQuestion;let i=index">-->
-<!--        <p>{{item.question}}</p>-->
-<!--      </div>-->
-<!--    </div>-->
-<!--  </div>-->
+  <div class="footer" id="footer">
+    <div class="footer-content content">
+      <div *ngFor="let item of listOfQuestion;let i=index">
+        <a (click)="openModel(item)">{{item.question}}</a>
+<!--        <p (click)="openModel(item)">{{item.question}}</p>-->
+      </div>
+    </div>
+  </div>
 </div>
 
 <nz-modal [(nzVisible)]="openVisiable" nzTitle="求学问答" [nzFooter]="null" (nzOnCancel)="openVisiable=!openVisiable"
           [nzWidth]="1500">
   <div class="footer">
     <div class="footer-content" style="font-size: 25px">
-      <div *ngFor="let item of listOfQuestion;let i=index">
-        <p style="color: #dc2424">{{item.question}}</p>
-        <div>
-          <div class="ql-editor" [innerHTML]="item?.answer"></div>
-        </div>
+      <div>
+        <div class="ql-editor" [innerHTML]="this.currentItem?.answer"></div>
       </div>
+<!--      <div *ngFor="let item of listOfQuestion;let i=index">-->
+<!--        <p style="color: #dc2424">{{item.question}}</p>-->
+<!--        <div>-->
+<!--          <div class="ql-editor" [innerHTML]="item?.answer"></div>-->
+<!--        </div>-->
+<!--      </div>-->
     </div>
   </div>
 </nz-modal>

@@ -22,6 +22,8 @@ listOfData: Array<any> = [];
   buttonDisable = false
 
   openVisiable = false
+  currentItem = null
+
 
 
   report = {
@@ -127,7 +129,8 @@ listOfData: Array<any> = [];
     })
   }
 
-  openModel(){
+  openModel(item){
+    this.currentItem = item;
     this.openVisiable = true
   }
 
