@@ -1,5 +1,6 @@
 package com.yunzainfo.education.service;
 
+import com.yunzainfo.education.dao.table.School;
 import com.yunzainfo.education.entity.MessagePhoneEntity;
 import com.yunzainfo.education.entity.PageParam;
 import com.yunzainfo.education.entity.auth.AuthEntity;
@@ -74,4 +75,6 @@ public interface AuthService {
     AuthEntity findById(AuthParam param);
 
     List<MessagePhoneEntity> findMessagePhone();
+
+    List<School> findSchool();
 }

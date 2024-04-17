@@ -52,4 +52,9 @@
         left join school c on a.school_id=c.id
         order by a.gmt_create desc
     </select>
+
+    <select id="findSchool" resultType="com.yunzainfo.education.dao.table.School">
+        select id,school_name schoolName,school_phone schoolPhone,pic_base64 picBase64,display_index dispalyIndex from school
+        order by display_index asc
+    </select>
 </mapper>

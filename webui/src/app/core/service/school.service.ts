@@ -18,6 +18,21 @@ export class SchoolService {
       })
     );
   }
+  queryListSchoolSlow() {
+    return this.http.get(`/device-manage/api/manage/school/findAllSchool`, YunzaiHeaders.APPLICATION_JSON).pipe(
+      map((response: any) => {
+        return response ? response : null;
+      })
+    );
+  }
+
+  queryDescribe(id) {
+    return this.http.get(`/device-manage/api/manage/school/findSchool/${id}`, YunzaiHeaders.APPLICATION_JSON).pipe(
+      map((response: any) => {
+        return response ? response : null;
+      })
+    );
+  }
 
   queryListMeaages() {
     return this.http.get(`/device-manage/api/manage/message/findAll`, YunzaiHeaders.APPLICATION_JSON).pipe(

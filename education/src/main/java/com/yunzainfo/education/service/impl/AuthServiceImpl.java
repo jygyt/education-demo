@@ -3,6 +3,7 @@ package com.yunzainfo.education.service.impl;
 import com.yunzainfo.education.dao.mapper.AuthMapper;
 import com.yunzainfo.education.dao.repository.AuthRepository;
 import com.yunzainfo.education.dao.table.Auth;
+import com.yunzainfo.education.dao.table.School;
 import com.yunzainfo.education.entity.MessagePhoneEntity;
 import com.yunzainfo.education.entity.PageParam;
 import com.yunzainfo.education.entity.auth.AuthEntity;
@@ -240,5 +241,10 @@ public class AuthServiceImpl implements AuthService {
     @Override
     public List<MessagePhoneEntity> findMessagePhone(){
         return mapper.findMessagePhone();
+    }
+
+    @Override
+    public List<School> findSchool(){
+        return mapper.findSchool();
     }
 }

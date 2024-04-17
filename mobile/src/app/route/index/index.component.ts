@@ -44,7 +44,7 @@ export class IndexComponent implements OnInit {
 
 
   queryListForPage() {
-    this.service.queryListSchool().subscribe((res: any) => {
+    this.service.queryListSchoolSlow().subscribe((res: any) => {
       this.listOfData = res.data
       res.data.forEach((item) => {
         this.state.data.push(item.picBase64)

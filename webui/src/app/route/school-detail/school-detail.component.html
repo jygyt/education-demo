@@ -54,7 +54,7 @@
   </nz-table>
 </div>
 
-<nz-modal [(nzVisible)]="templateModal.isVisible" nzTitle="{{templateModal.title}}" (nzOnCancel)="templateModal.isVisible=!templateModal.isVisible" (nzOnOk)="handleOkTemplate()" nzWidth="800px">
+<nz-modal [(nzVisible)]="templateModal.isVisible" [nzOkLoading]="okLoading" nzTitle="{{templateModal.title}}" (nzOnCancel)="templateModal.isVisible=!templateModal.isVisible" (nzOnOk)="handleOkTemplate()" nzWidth="800px">
 
   <nz-form-item>
     <nz-form-label [nzSm]="6" [nzXs]="24" nzRequired>学校名称</nz-form-label>

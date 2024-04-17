@@ -11,6 +11,22 @@ export class SchoolService {
   constructor(private http: HttpClient) {
   }
 
+  queryListSchoolSlow() {
+    return this.http.get(`/device-manage/api/manage/school/findAllSchool`, YunzaiHeaders.APPLICATION_JSON).pipe(
+      map((response: any) => {
+        return response ? response : null;
+      })
+    );
+  }
+
+  queryDescribe(id) {
+    return this.http.get(`/device-manage/api/manage/school/findSchool/${id}`, YunzaiHeaders.APPLICATION_JSON).pipe(
+      map((response: any) => {
+        return response ? response : null;
+      })
+    );
+  }
+
   queryListSchool() {
     return this.http.get(`/device-manage/api/manage/school/findAll`, YunzaiHeaders.APPLICATION_JSON).pipe(
       map((response: any) => {

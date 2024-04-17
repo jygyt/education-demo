@@ -1,6 +1,7 @@
 package com.yunzainfo.education.dao.mapper;
 
 import com.yunzainfo.education.dao.table.Auth;
+import com.yunzainfo.education.dao.table.School;
 import com.yunzainfo.education.entity.MessagePhoneEntity;
 import com.yunzainfo.education.entity.auth.AuthEntity;
 import org.apache.ibatis.annotations.Mapper;
@@ -55,4 +56,6 @@ public interface AuthMapper {
     Auth selectAuthById(@Param("id") String id);
 
     List<MessagePhoneEntity> findMessagePhone();
+
+    List<School> findSchool();
 }

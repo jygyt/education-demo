@@ -42,7 +42,7 @@
         <img style="height: 150px" alt="example" [src]="'data:image/jpeg;base64,'+formatString(data.picBase64)" />
       </ng-template>
       <ng-template #actionSetting>
-        <button nz-button nzType="danger" (click)="detail(data)">查看详情</button>
+        <button nz-button nzType="danger" (click)="detail(data)" [disabled]="buttonDisable">查看详情</button>
       </ng-template>
 
 <!--      <div class="item-card">-->
@@ -69,8 +69,7 @@
 <!--  <div class="footer">-->
 <!--    <div class="footer-content content">-->
 <!--      <div *ngFor="let item of listOfQuestion;let i=index">-->
-<!--        <p>问题{{i+1}}：{{item.question}}</p>-->
-<!--        <p>解答{{i+1}}：{{item.answer}}</p>-->
+<!--        <p>{{item.question}}</p>-->
 <!--      </div>-->
 <!--    </div>-->
 <!--  </div>-->
@@ -81,7 +80,7 @@
   <div class="footer">
     <div class="footer-content" style="font-size: 25px">
       <div *ngFor="let item of listOfQuestion;let i=index">
-        <p style="color: #dc2424">问题{{i+1}}：{{item.question}}</p>
+        <p style="color: #dc2424">{{item.question}}</p>
         <div>
           <div class="ql-editor" [innerHTML]="item?.answer"></div>
         </div>

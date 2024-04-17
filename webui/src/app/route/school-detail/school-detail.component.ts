@@ -12,6 +12,7 @@ import {DomSanitizer} from "@angular/platform-browser";
 export class SchoolDetailComponent implements OnInit {
   typeName = null;
   listOfData: Array<any> = [];
+  okLoading = false
 
   tableParams = {
     tableLoading: false,
@@ -163,7 +164,9 @@ export class SchoolDetailComponent implements OnInit {
   }
 
   handleOkTemplate() {
+    this.okLoading = true
     this.service.addSchool(this.templateModal.id,this.templateModal.schoolName,this.templateModal.schoolPhone,this.templateModal.displayIndex,this.templateModal.schoolDescribe,this.templateModal.picBase64).subscribe((val) => {
+      this.okLoading = false
       this.templateModal.isVisible = false;
       this.queryListForPage()
     })

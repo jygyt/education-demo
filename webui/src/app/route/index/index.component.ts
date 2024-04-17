@@ -19,6 +19,7 @@ listOfData: Array<any> = [];
   isVisible=false
   inputValue=null
   accountEditForm: FormGroup;
+  buttonDisable = false
 
   openVisiable = false
 
@@ -70,7 +71,7 @@ listOfData: Array<any> = [];
 
 
   queryListForPage() {
-    this.service.queryListSchool().subscribe((res: any) => {
+    this.service.queryListSchoolSlow().subscribe((res: any) => {
       this.listOfData = res.data
 
       this.listOfData.forEach(x => {
@@ -95,9 +96,18 @@ listOfData: Array<any> = [];
   }
 
   detail(data){
+    this.buttonDisable = true
+    this.service.queryDescribe(data.id).subscribe((res: any) => {
+      console.log(res)
+      this.isVisible = true
+      this.buttonDisable = false
+      this.detailInfo = res.data
+
+    }, (errMsg) => {
+      this.buttonDisable = false
+    });
     console.log(data)
-    this.detailInfo = data
-    this.isVisible=true
+
   }
 
   saveReport(){

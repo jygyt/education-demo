@@ -6,7 +6,9 @@ import com.yunzainfo.education.dao.table.Auth;
 import com.yunzainfo.education.dao.table.School;
 import com.yunzainfo.education.entity.LoginParam;
 import com.yunzainfo.education.entity.result.ResultData;
+import com.yunzainfo.education.service.AuthService;
 import com.yunzainfo.education.service.TokenService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
@@ -17,6 +19,7 @@ import javax.servlet.http.HttpServletRequest;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.Optional;
 
 /**
  * @author ngf
@@ -26,6 +29,8 @@ import java.util.Map;
 @RequestMapping("/device-manage/api/manage/school")
 public class SchoolController {
 
+    @Autowired
+    private AuthService authService;
     private final SchoolRepository schoolRepository;
 
     public SchoolController(SchoolRepository schoolRepository) {
@@ -36,6 +41,18 @@ public class SchoolController {
     public ResponseEntity findAll() {
         List<School> list = schoolRepository.findAllByOrderByDisplayIndexAsc();
         return ResultData.okData(list);
+    }
+
+    @GetMapping("/findAllSchool")
+    public ResponseEntity findAllSchool() {
+        List<School> list = authService.findSchool();
+        return ResultData.okData(list);
+    }
+
+    @GetMapping("/findSchool/{id}")
+    public ResponseEntity findAllSchoolById(@PathVariable String id) {
+        Optional<School> school = schoolRepository.findById(id);
+        return ResultData.okData(school.get());
     }
 
     @PostMapping("/save")
