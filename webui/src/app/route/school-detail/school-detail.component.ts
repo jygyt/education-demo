@@ -57,7 +57,7 @@ export class SchoolDetailComponent implements OnInit {
   }
 
   queryListForPage() {
-    this.service.queryListSchool().subscribe((res: any) => {
+    this.service.queryListSchoolSlow().subscribe((res: any) => {
       this.listOfData = res.data
       this.tableParams.total = res.data.size;
 
@@ -172,8 +172,18 @@ export class SchoolDetailComponent implements OnInit {
     })
   }
 
-  opendNoticeContent(noticeContent: any) {
-    this.noticeContentModal.isVisible = true;
-    this.noticeContentModal.noticeContent = noticeContent;
+  // opendNoticeContent(noticeContent: any) {
+  //   this.noticeContentModal.isVisible = true;
+  //   this.noticeContentModal.noticeContent = noticeContent;
+  // }
+
+  opendNoticeContent(data) {
+    this.service.queryDescribe(data.id).subscribe((res: any) => {
+      console.log(res)
+      this.noticeContentModal.isVisible = true;
+      this.noticeContentModal.noticeContent = res.data.schoolDescribe;
+
+    }, (errMsg) => {
+    });
   }
 }

@@ -14,8 +14,28 @@
     <app-carousel [images]="listOfData"></app-carousel>
 
   </div>
+<!--  <div class="swiper-container">-->
+<!--    <div class="swiper-wrapper">-->
+<!--    <ng-container *ngFor="let item of swiperList">-->
+<!--      <div class="swiper-slide">-->
+<!--         <img [src]="item.imgUrl" alt="">-->
+<!--&lt;!&ndash;        <a href="javascript:;" [ngStyle]="{'background': 'url(' + item.imgUrl + ')'}"></a>&ndash;&gt;-->
+<!--      </div>-->
+<!--    </ng-container>-->
+<!--  </div>-->
+  <!-- 如果需要分页器 -->
+  <!-- <div class="swiper-pagination"></div> -->
 
-  <button nzShape="circle" class="fixed-button" nz-button nzType="primary" nzSize="large"
+  <!-- 如果需要导航按钮 -->
+  <!-- <div class="swiper-button-prev"></div>
+  <div class="swiper-button-next"></div> -->
+
+  <!-- 如果需要滚动条 -->
+  <!-- <div class="swiper-scrollbar"></div> -->
+<!--</div>-->
+
+
+<button nzShape="circle" class="fixed-button" nz-button nzType="primary" nzSize="large"
     (click)="openReport()">点击报名</button>
   <div class="intro content">
     <h2>

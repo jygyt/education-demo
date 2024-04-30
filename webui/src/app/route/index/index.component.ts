@@ -1,15 +1,15 @@
-import { Component, OnInit } from '@angular/core';
+import {AfterViewInit, Component, OnInit} from '@angular/core';
 import {SchoolService} from "../../core/service/school.service";
 import {NzMessageService} from "ng-zorro-antd";
 import {FormBuilder, FormGroup, Validators} from "@angular/forms";
 import {Router} from "@angular/router";
-
+declare var Swiper: any;
 @Component({
   selector: 'app-index',
   templateUrl: './index.component.html',
   styleUrls: ['./index.component.less']
 })
-export class IndexComponent implements OnInit {
+export class IndexComponent implements OnInit,AfterViewInit {
 listOfData: Array<any> = [];
   listOfDataSchool: Array<any> = [];
   listOfUser: Array<any> = [];
@@ -23,6 +23,9 @@ listOfData: Array<any> = [];
 
   openVisiable = false
   currentItem = null
+
+  // 轮播数据
+  swiperList: any[] = [];
 
 
 
@@ -55,10 +58,45 @@ listOfData: Array<any> = [];
       window.location.href = 'http://www.bdjxw.cn/mobile/#/index';
       //this.router.navigate([`http://www/bdjxw.cn/mobile`]);
     } else {
-      this.queryListForPage();
       this.queryUser();
       this.queryQuestion();
+      this.swiperInit();
     }
+  }
+
+  ngAfterViewInit(): void {
+    this.queryListForPage();
+  }
+
+  swiperInit() {
+    // tslint:disable-next-line: no-unused-expression
+    // const swiper = new Swiper(this.swiperContainer.nativeElement, {
+    //   // 在这里配置你的Swiper选项...
+    // });
+    new Swiper ('.swiper-container', {
+      direction: 'horizontal', // 水平切换选项
+      loop: true, // 循环模式选项
+      speed: 6, // 滑动时间
+      grabCursor: true, // 鼠标指针形状
+      autoplay: {
+        delay: 1500,
+        stopOnLastSlide: false,
+        disableOnInteraction: false // 手动滑动之后依然自动轮播
+      }, // 自动滑动
+      effect : 'fade', // 切换效果
+      observer: true, // 修改swiper自己或子元素时，自动初始化swiper
+      observeParents: true, // 修改swiper的父元素时，自动初始化swiper
+      // navigation: {  // 分页器
+      //     nextEl: '.swiper-button-next',
+      //     prevEl: '.swiper-button-prev',
+      // },
+      // pagination: { // 如果需要前进后退按钮
+      //     el: '.swiper-pagination',
+      // },
+      // scrollbar: { // 如果需要滚动条
+      //     el: '.swiper-scrollbar',
+      // }
+    });
   }
   // 显示base64图片, 出错unsafe后-去掉字符串中的空格和换行
   formatString(value) {
@@ -80,6 +118,10 @@ listOfData: Array<any> = [];
         if(x.schoolName){
           this.listOfDataSchool.push(x);
         }
+        // const imgUrl = {
+        //   imgUrl: 'data:image/jpeg;base64,'+ this.formatString(x.picBase64)
+        // }
+        // this.swiperList.push(imgUrl);
       })
 
     }, (errMsg) => {

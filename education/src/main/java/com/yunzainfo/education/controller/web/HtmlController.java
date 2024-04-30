@@ -18,9 +18,8 @@ import java.util.concurrent.ScheduledThreadPoolExecutor;
 public class HtmlController {
 
     @GetMapping(path = {"/pc","/"})
-    @ResponseStatus(HttpStatus.OK)
     public String home() {
-        return "redirect:/pc/index.html";
+        return "index.html";
     }
 
     @GetMapping(path = {"/mobile"})

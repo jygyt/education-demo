@@ -37,7 +37,7 @@
         <td>
           <img [src]="'data:image/jpeg;base64,'+formatString(data.picBase64)" alt="暂未上传" height="50px"/>
         </td>
-        <td><a (click)="opendNoticeContent(data.schoolDescribe)">简介内容</a></td>
+        <td><a (click)="opendNoticeContent(data)">简介内容</a></td>
         <td>{{ data.schoolPhone }}</td>
         <td>{{ data.displayIndex }}</td>
         <td>

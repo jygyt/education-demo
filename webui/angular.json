@@ -33,10 +33,12 @@
               }
             ],
             "styles": [
-              "src/styles.less"
+              "src/styles.less",
+              "node_modules/swiper/swiper-bundle.css"
             ],
             "scripts": [
-              "node_modules/ajv/dist/ajv.bundle.js"
+              "node_modules/ajv/dist/ajv.bundle.js",
+              "node_modules/swiper/swiper.min.js"
             ]
           },
           "configurations": {
