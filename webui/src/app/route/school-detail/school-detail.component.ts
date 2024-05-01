@@ -3,6 +3,7 @@ import {NzMessageService, UploadFile} from "ng-zorro-antd";
 import {SchoolService} from "../../core/service/school.service";
 import {Observable, Observer} from "rxjs";
 import {DomSanitizer} from "@angular/platform-browser";
+import {AllService} from "../../core/service/all.service";
 
 @Component({
   selector: 'app-school-detail',
@@ -49,7 +50,7 @@ export class SchoolDetailComponent implements OnInit {
   fileList = [];
   previewImage: string | undefined = '';
   previewVisible = false;
-  constructor(private service: SchoolService, private messageService: NzMessageService,private sanitizer: DomSanitizer) {
+  constructor(public allService: AllService,private service: SchoolService, private messageService: NzMessageService,private sanitizer: DomSanitizer) {
   }
 
   ngOnInit() {
@@ -83,7 +84,10 @@ export class SchoolDetailComponent implements OnInit {
         thumbUrl: img
       }];
 
-      this.templateModal.picBase64 = img.split('data:image/jpeg;base64,')[1];
+      this.allService.uploadFile(file).subscribe(value => {
+        this.templateModal.picBase64 = '/upload/download/' + value.data;
+      });
+      // this.templateModal.picBase64 = img.split('data:image/jpeg;base64,')[1];
       // this.images_add = [{
       //   base64: img,
       //   filename: file.name,
@@ -130,7 +134,7 @@ export class SchoolDetailComponent implements OnInit {
         uid: -1,
         name: '',
         status: 'done',
-        thumbUrl: 'data:image/jpeg;base64,' + this.formatString(data.picBase64)
+        thumbUrl: data.picBase64
       }];
       this.templateModal.isVisible = true;
     }, (errMsg) => {

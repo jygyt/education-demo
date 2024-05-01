@@ -18,6 +18,9 @@ export class IndexComponent implements OnInit {
   inputValue = null
   isVisible = false
   detailInfo = null
+  carouselIndex = 0;
+  timeOut = null;
+
 
   listOfQuestion: Array<any> = [];
   constructor(
@@ -84,6 +87,23 @@ export class IndexComponent implements OnInit {
     this.service.queryListQuestion().subscribe((val)=>{
       this.listOfQuestion = val.data
     })
+  }
+
+  afterCarousel(event) {
+    // 默认三秒
+    // 手动轮播，先清除上一次定时
+    clearTimeout(this.timeOut);
+
+    // 定时轮播下一个
+    this.timeOut = setTimeout(() => {
+      if (event + 1 < this.listOfData.length) {
+        // 未到数组最后，则轮播下标加1
+        this.carouselIndex = event + 1;
+      } else {
+        // 轮播数组到达最后，将轮播下标赋值为0重新轮播
+        this.carouselIndex = 0;
+      }
+    }, 3000);
   }
 
 }

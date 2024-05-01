@@ -2,6 +2,7 @@
   <div class="header">
     <div class="header-info  content">
       <div class="logo">
+        <img src="assets/imgs/logo.png" />
      </div>
       <div class="link">
     </div>
@@ -59,7 +60,7 @@
         ></nz-card-meta>
       </nz-card>
       <ng-template #coverTemplate>
-        <img style="height: 150px" alt="example" [src]="'data:image/jpeg;base64,'+formatString(data.picBase64)" />
+        <img style="height: 150px" alt="example" [src]="data.picBase64" />
       </ng-template>
       <ng-template #actionSetting>
         <button nz-button nzType="danger" (click)="detail(data)" [disabled]="buttonDisable">查看详情</button>
