@@ -111,24 +111,30 @@ export class SchoolDetailComponent implements OnInit {
   }
 
   update(data) {
-    this.templateModal = {
-      id: data.id,
-      isVisible : false,
-      title: '编辑界面',
-      isLoading: false,
-      schoolName: data.schoolName,
-      schoolPhone: data.schoolPhone,
-      picBase64: data.picBase64,
-      schoolDescribe: data.schoolDescribe,
-      displayIndex: data.displayIndex
-    };
-    this.fileList = [{
-      uid: -1,
-      name: '',
-      status: 'done',
-      thumbUrl: 'data:image/jpeg;base64,' + this.formatString(data.picBase64)
-    }];
-    this.templateModal.isVisible = true;
+    this.service.queryDescribe(data.id).subscribe((res: any) => {
+
+      //this.noticeContentModal.noticeContent = res.data.schoolDescribe;
+
+      this.templateModal = {
+        id: data.id,
+        isVisible : false,
+        title: '编辑界面',
+        isLoading: false,
+        schoolName: data.schoolName,
+        schoolPhone: data.schoolPhone,
+        picBase64: data.picBase64,
+        schoolDescribe: res.data.schoolDescribe,
+        displayIndex: data.displayIndex
+      };
+      this.fileList = [{
+        uid: -1,
+        name: '',
+        status: 'done',
+        thumbUrl: 'data:image/jpeg;base64,' + this.formatString(data.picBase64)
+      }];
+      this.templateModal.isVisible = true;
+    }, (errMsg) => {
+    });
   }
 
   handleOk() {

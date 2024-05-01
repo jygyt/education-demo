@@ -4,6 +4,12 @@
     "secure": false,
     "logLevel": "debug",
     "changeOrigin": true
+  },
+  "/upload": {
+    "target": "http://www.bdjxw.cn",
+    "secure": false,
+    "logLevel": "debug",
+    "changeOrigin": true
   }
 }
 

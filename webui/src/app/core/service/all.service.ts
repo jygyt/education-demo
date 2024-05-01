@@ -268,5 +268,15 @@ export class AllService {
     }
   }
 
+  uploadFile(file: any) {
+    const formData: FormData = new FormData();
+    formData.set('file', file);
+    return this.http.post(`/upload/upload`, formData).pipe(
+      map((response: any) => {
+        return response;
+      })
+    );
+  }
+
 }
 
