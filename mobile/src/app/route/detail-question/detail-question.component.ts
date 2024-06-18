@@ -9,6 +9,7 @@ import { Base64 } from 'js-base64';
 export class DetailQuestionComponent implements OnInit {
   detail: any = null
   constructor(
+    private router: Router,
     private activate: ActivatedRoute,
   ) { }
 
@@ -20,7 +21,9 @@ export class DetailQuestionComponent implements OnInit {
   }
 
   onLeftClick() {
-  history.back()
+    this.router.navigate([`/index`])
+  // history.back()
+  //   location.reload();
   }
 
 }

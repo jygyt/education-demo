@@ -29,7 +29,9 @@ export class ReportComponent implements OnInit {
     this.queryUser();
   }
   onLeftClick() {
-    history.back()
+    this.router.navigate([`/index`])
+    // history.back()
+    // location.reload();
     }
 
   onOk3(result) {

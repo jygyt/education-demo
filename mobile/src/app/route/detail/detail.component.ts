@@ -10,6 +10,7 @@ import {SchoolService} from "../../core/service/school.service";
 export class DetailComponent implements OnInit {
   detail: any = null
   constructor(
+    private router: Router,
     private activate: ActivatedRoute,
     private service: SchoolService
   ) { }
@@ -24,7 +25,9 @@ export class DetailComponent implements OnInit {
   }
 
   onLeftClick() {
-  history.back()
+    this.router.navigate([`/index`])
+  // history.back()
+  //   location.reload();
   }
 
   getSchoolDetail(id){
