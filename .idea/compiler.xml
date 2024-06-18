@@ -10,10 +10,6 @@
         <module name="education" />
       </profile>
     </annotationProcessing>
-    <bytecodeTargetLevel>
-      <module name="education" target="1.8" />
-      <module name="education-demo" target="1.5" />
-    </bytecodeTargetLevel>
   </component>
   <component name="TypeScriptCompiler">
     <option name="nodeInterpreterTextField" value="/usr/local/bin/node" />
